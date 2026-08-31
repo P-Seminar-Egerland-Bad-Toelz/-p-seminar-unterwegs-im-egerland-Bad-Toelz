@@ -1,5 +1,5 @@
 /* =====================================================
-   JAHR
+   ALLGEMEIN
 ===================================================== */
 
 document.querySelectorAll('[data-year]').forEach((element) => {
@@ -8,25 +8,21 @@ document.querySelectorAll('[data-year]').forEach((element) => {
 
 
 /* =====================================================
-   MOBILE NAVIGATION
+   MOBILE MENÜ
 ===================================================== */
 
 const menuButton = document.querySelector('.menu-button');
 const navigation = document.querySelector('.main-nav');
 
 if (menuButton && navigation) {
-
     menuButton.addEventListener('click', () => {
-
         const isOpen = navigation.classList.toggle('open');
 
         menuButton.setAttribute(
             'aria-expanded',
-            isOpen
+            isOpen ? 'true' : 'false'
         );
-
     });
-
 }
 
 
@@ -34,33 +30,17 @@ if (menuButton && navigation) {
    FOTOGALERIE – LIGHTBOX
 ===================================================== */
 
-const galleryItems = document.querySelectorAll(
-    ".gallery-item img"
+const galleryImages = Array.from(
+    document.querySelectorAll('.gallery-item img')
 );
 
-const lightbox = document.getElementById(
-    "lightbox"
-);
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxCaption = document.getElementById('lightbox-caption');
 
-const lightboxImage = document.getElementById(
-    "lightbox-image"
-);
-
-const lightboxCaption = document.getElementById(
-    "lightbox-caption"
-);
-
-const lightboxClose = document.querySelector(
-    ".lightbox-close"
-);
-
-const lightboxPrev = document.querySelector(
-    ".lightbox-prev"
-);
-
-const lightboxNext = document.querySelector(
-    ".lightbox-next"
-);
+const lightboxClose = document.querySelector('.lightbox-close');
+const lightboxPrev = document.querySelector('.lightbox-prev');
+const lightboxNext = document.querySelector('.lightbox-next');
 
 let currentImage = 0;
 
@@ -71,28 +51,25 @@ let currentImage = 0;
 
 function openLightbox(index) {
 
-    if (!galleryItems.length || !lightbox) {
+    if (!lightbox || !lightboxImage || galleryImages.length === 0) {
         return;
     }
 
     currentImage = index;
 
-    const image = galleryItems[currentImage];
+    const image = galleryImages[currentImage];
 
     lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt || '';
 
-    lightboxImage.alt = image.alt;
+    if (lightboxCaption) {
+        lightboxCaption.textContent = image.alt || '';
+    }
 
-    lightboxCaption.textContent = image.alt;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
 
-    lightbox.classList.add("open");
-
-    lightbox.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
 }
 
 
@@ -106,15 +83,10 @@ function closeLightbox() {
         return;
     }
 
-    lightbox.classList.remove("open");
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
 
-    lightbox.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    document.body.style.overflow = "";
-
+    document.body.style.overflow = '';
 }
 
 
@@ -124,13 +96,14 @@ function closeLightbox() {
 
 function showPrevious() {
 
+    if (galleryImages.length === 0) {
+        return;
+    }
+
     currentImage--;
 
     if (currentImage < 0) {
-
-        currentImage =
-            galleryItems.length - 1;
-
+        currentImage = galleryImages.length - 1;
     }
 
     openLightbox(currentImage);
@@ -143,15 +116,14 @@ function showPrevious() {
 
 function showNext() {
 
+    if (galleryImages.length === 0) {
+        return;
+    }
+
     currentImage++;
 
-    if (
-        currentImage >=
-        galleryItems.length
-    ) {
-
+    if (currentImage >= galleryImages.length) {
         currentImage = 0;
-
     }
 
     openLightbox(currentImage);
@@ -159,17 +131,16 @@ function showNext() {
 
 
 /* =====================================================
-   KLICK AUF BILDER
+   AUF BILD KLICKEN
 ===================================================== */
 
-galleryItems.forEach((image, index) => {
+galleryImages.forEach((image, index) => {
 
-    image.addEventListener(
-        "click",
-        () => {
-            openLightbox(index);
-        }
-    );
+    image.style.cursor = 'pointer';
+
+    image.addEventListener('click', () => {
+        openLightbox(index);
+    });
 
 });
 
@@ -179,53 +150,31 @@ galleryItems.forEach((image, index) => {
 ===================================================== */
 
 if (lightboxClose) {
-
-    lightboxClose.addEventListener(
-        "click",
-        closeLightbox
-    );
-
+    lightboxClose.addEventListener('click', closeLightbox);
 }
 
 if (lightboxPrev) {
-
-    lightboxPrev.addEventListener(
-        "click",
-        showPrevious
-    );
-
+    lightboxPrev.addEventListener('click', showPrevious);
 }
 
 if (lightboxNext) {
-
-    lightboxNext.addEventListener(
-        "click",
-        showNext
-    );
-
+    lightboxNext.addEventListener('click', showNext);
 }
 
 
 /* =====================================================
-   HINTERGRUND KLICK
+   HINTERGRUND KLICKEN
 ===================================================== */
 
 if (lightbox) {
 
-    lightbox.addEventListener(
-        "click",
-        (event) => {
+    lightbox.addEventListener('click', (event) => {
 
-            if (
-                event.target === lightbox
-            ) {
-
-                closeLightbox();
-
-            }
-
+        if (event.target === lightbox) {
+            closeLightbox();
         }
-    );
+
+    });
 
 }
 
@@ -234,34 +183,22 @@ if (lightbox) {
    TASTATUR
 ===================================================== */
 
-document.addEventListener(
-    "keydown",
-    (event) => {
+document.addEventListener('keydown', (event) => {
 
-        if (
-            !lightbox ||
-            !lightbox.classList.contains("open")
-        ) {
-            return;
-        }
-
-        if (event.key === "Escape") {
-
-            closeLightbox();
-
-        }
-
-        if (event.key === "ArrowLeft") {
-
-            showPrevious();
-
-        }
-
-        if (event.key === "ArrowRight") {
-
-            showNext();
-
-        }
-
+    if (!lightbox || !lightbox.classList.contains('open')) {
+        return;
     }
-);
+
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+
+    if (event.key === 'ArrowLeft') {
+        showPrevious();
+    }
+
+    if (event.key === 'ArrowRight') {
+        showNext();
+    }
+
+});
