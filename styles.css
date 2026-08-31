@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
 
-
 /* =====================================================
    GRUNDLAGEN
-   ===================================================== */
+===================================================== */
 
 :root {
   --ink: #1d2c28;
@@ -15,34 +14,27 @@
   --muted: #69736e;
 }
 
-
 * {
   box-sizing: border-box;
 }
-
 
 html {
   scroll-behavior: smooth;
 }
 
-
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-
   font-family: "DM Sans", Arial, sans-serif;
-
   font-size: 16px;
   line-height: 1.65;
 }
-
 
 a {
   color: inherit;
   text-decoration: none;
 }
-
 
 h1,
 h2,
@@ -50,7 +42,6 @@ h3,
 p {
   margin-top: 0;
 }
-
 
 h1,
 h2 {
@@ -60,16 +51,13 @@ h2 {
   letter-spacing: -0.035em;
 }
 
-
 h1 {
   font-size: clamp(3rem, 7vw, 6.4rem);
 }
 
-
 h2 {
   font-size: clamp(2rem, 3.5vw, 3.5rem);
 }
-
 
 h3 {
   line-height: 1.2;
@@ -79,72 +67,55 @@ h3 {
 
 /* =====================================================
    ACCESSIBILITY
-   ===================================================== */
+===================================================== */
 
 .skip-link {
   position: absolute;
   left: -999px;
 }
 
-
 .skip-link:focus {
   left: 1rem;
   top: 1rem;
-
   background: white;
-
   padding: 0.5rem;
-
-  z-index: 50;
+  z-index: 100;
 }
 
 
 /* =====================================================
    NAVIGATION
-   ===================================================== */
+===================================================== */
 
 .site-header {
   min-height: 78px;
-
-  padding:
-    0
-    clamp(1.25rem, 5vw, 5rem);
+  padding: 0 clamp(1.25rem, 5vw, 5rem);
 
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
   border-bottom: 1px solid var(--line);
 
   position: relative;
-
   background: var(--paper);
-
   z-index: 20;
 }
 
-
 .brand {
   display: flex;
-
   align-items: center;
-
   gap: 0.65rem;
 
   font-weight: 700;
-
   letter-spacing: -0.04em;
 }
 
-
 .brand-mark {
   font-family: Fraunces, serif;
-
   font-size: 1.1rem;
 
   background: var(--moss);
-
   color: var(--paper);
 
   border-radius: 50%;
@@ -153,55 +124,46 @@ h3 {
   height: 34px;
 
   display: grid;
-
   place-items: center;
 
   letter-spacing: -0.1em;
 }
 
-
 .main-nav {
   display: flex;
-
   gap: 1.35rem;
-
   align-items: center;
 
   font-size: 0.87rem;
 }
 
-
 .main-nav a {
   padding: 0.35rem 0;
-
   border-bottom: 1px solid transparent;
-
   transition: border-color 0.2s;
 }
-
 
 .main-nav a:hover,
 .main-nav .active {
   border-color: var(--moss);
 }
 
-
 .menu-button {
   display: none;
 
   border: 0;
-
   background: transparent;
 
   font: inherit;
-
   color: var(--ink);
+
+  cursor: pointer;
 }
 
 
 /* =====================================================
-   HERO – GROSSES TITELBILD
-   ===================================================== */
+   STARTSEITE – HERO
+===================================================== */
 
 .hero {
   position: relative;
@@ -209,7 +171,6 @@ h3 {
   min-height: calc(100vh - 78px);
 
   display: flex;
-
   align-items: center;
 
   overflow: hidden;
@@ -218,9 +179,10 @@ h3 {
 }
 
 
-/* FOTO */
+/* Titelbild */
 
-.hero-background {
+.hero-background,
+.hero-visual {
   position: absolute;
 
   inset: 0;
@@ -230,53 +192,50 @@ h3 {
   background-image: url("titelbild.jpg.jpeg");
 
   background-size: cover;
-
   background-position: center center;
-
   background-repeat: no-repeat;
 }
 
 
-/* DUNKLE TRANSPARENTE EBENE */
+/* dunkle Ebene über dem Foto */
 
-.hero-overlay {
+.hero-background::after,
+.hero-visual::after {
+  content: "";
+
   position: absolute;
-
   inset: 0;
-
-  z-index: 1;
 
   background:
     linear-gradient(
       90deg,
-      rgba(15, 25, 22, 0.80) 0%,
-      rgba(15, 25, 22, 0.55) 45%,
+      rgba(15, 25, 22, 0.82) 0%,
+      rgba(15, 25, 22, 0.58) 45%,
       rgba(15, 25, 22, 0.20) 100%
     );
 }
 
 
-/* TEXT AUF DEM FOTO */
+/* Hero-Inhalt */
 
 .hero-content {
   position: relative;
-
   z-index: 2;
 
   width: min(1200px, 100%);
 
+  margin: 0 auto;
+
   padding:
     clamp(5rem, 10vw, 9rem)
-    clamp(1.5rem, 8vw, 9rem);
+    clamp(1.5rem, 7vw, 7rem);
 
   color: white;
 }
 
-
 .hero-content .eyebrow {
   color: #d9dfc8;
 }
-
 
 .hero-content h1 {
   max-width: 950px;
@@ -289,13 +248,10 @@ h3 {
     0 3px 20px rgba(0, 0, 0, 0.45);
 }
 
-
 .hero-content h1 em {
   color: var(--gold);
-
   font-style: italic;
 }
-
 
 .hero-content .lead {
   max-width: 650px;
@@ -310,20 +266,18 @@ h3 {
 
 
 /* =====================================================
-   BUTTON
-   ===================================================== */
+   BUTTONS
+===================================================== */
 
 .button {
   display: inline-flex;
 
   gap: 0.9rem;
-
   align-items: center;
 
   margin-top: 1.4rem;
 
   background: var(--moss);
-
   color: white;
 
   padding:
@@ -339,22 +293,31 @@ h3 {
     transform 0.2s;
 }
 
-
 .button span {
   font-size: 1.3rem;
 }
 
-
 .button:hover {
   background: #284a3e;
-
   transform: translateY(-2px);
+}
+
+
+/* heller Button */
+
+.button-light {
+  background: var(--paper);
+  color: var(--moss);
+}
+
+.button-light:hover {
+  background: white;
 }
 
 
 /* =====================================================
    ALLGEMEINE ELEMENTE
-   ===================================================== */
+===================================================== */
 
 .eyebrow {
   font-family: "DM Mono", monospace;
@@ -370,31 +333,11 @@ h3 {
   margin-bottom: 1.25rem;
 }
 
-
 .section {
   padding:
-    clamp(4rem, 9vw, 8rem)
-    clamp(1.25rem, 8vw, 9rem);
+    clamp(4rem, 8vw, 7rem)
+    clamp(1.25rem, 5vw, 5rem);
 }
-
-
-.intro-grid {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: clamp(2rem, 9vw, 9rem);
-
-  border-top: 1px solid var(--line);
-
-  padding-top: 2rem;
-}
-
-
-.intro-grid p {
-  font-size: 1.12rem;
-}
-
 
 .text-link {
   display: inline-flex;
@@ -410,25 +353,20 @@ h3 {
   border-bottom: 1px solid var(--moss);
 }
 
-
 .text-link span {
   font-size: 1.2rem;
 }
-
 
 .tinted-section {
   background: var(--sand);
 }
 
-
 .section-heading {
   display: flex;
-
   justify-content: space-between;
 
   margin-bottom: 2.5rem;
 }
-
 
 .section-heading h2 {
   margin-bottom: 0;
@@ -436,15 +374,44 @@ h3 {
 
 
 /* =====================================================
-   ZWEI SPALTEN
-   ===================================================== */
+   STARTSEITE – TEXTBEREICHE
+===================================================== */
 
-.two-column {
+.intro-grid {
+  width: min(1200px, 100%);
+
+  margin: 0 auto;
+
   display: grid;
 
   grid-template-columns: 1fr 1fr;
 
-  gap: clamp(2rem, 8vw, 7rem);
+  gap: clamp(2rem, 7vw, 7rem);
+
+  border-top: 1px solid var(--line);
+
+  padding-top: 2rem;
+}
+
+.intro-grid p {
+  font-size: 1.12rem;
+}
+
+
+/* =====================================================
+   ZWEI SPALTEN
+===================================================== */
+
+.two-column {
+  width: min(1200px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: clamp(2rem, 7vw, 7rem);
 
   align-items: center;
 }
@@ -452,13 +419,12 @@ h3 {
 
 /* =====================================================
    BILDER
-   ===================================================== */
+===================================================== */
 
 .image-placeholder {
   position: relative;
 
   display: grid;
-
   place-items: center;
 
   overflow: hidden;
@@ -483,7 +449,6 @@ h3 {
   text-align: center;
 }
 
-
 .image-placeholder::before {
   content: "";
 
@@ -496,7 +461,6 @@ h3 {
   transform: rotate(-8deg);
 }
 
-
 .image-placeholder span {
   z-index: 1;
 
@@ -507,7 +471,6 @@ h3 {
   font-size: 0.8rem;
 }
 
-
 .image-placeholder.tall {
   min-height: 440px;
 }
@@ -515,7 +478,7 @@ h3 {
 
 /* =====================================================
    ZITAT
-   ===================================================== */
+===================================================== */
 
 .quote-section {
   text-align: center;
@@ -524,7 +487,6 @@ h3 {
 
   margin: auto;
 }
-
 
 .quote-section blockquote {
   margin: 0;
@@ -538,37 +500,233 @@ h3 {
 
 
 /* =====================================================
-   KONTAKT
-   ===================================================== */
+   ÜBER UNS – TITEL
+===================================================== */
 
-.contact-callout {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 2rem;
-
-  align-items: center;
-
+.about-hero {
   background: var(--sand);
 
-  padding: clamp(2rem, 5vw, 4rem);
+  padding:
+    clamp(5rem, 9vw, 8rem)
+    1.25rem
+    clamp(4rem, 7vw, 6rem);
+}
+
+.center-content {
+  width: min(1050px, 100%);
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.center-content h1 {
+  margin-bottom: 0;
+}
+
+.center-content h1 em {
+  color: var(--moss);
 }
 
 
-.contact-callout h2 {
+/* =====================================================
+   ÜBER UNS – EINLEITUNG
+===================================================== */
+
+.about-intro {
+  padding-top: clamp(4rem, 7vw, 6rem);
+  padding-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.center-text {
+  width: min(900px, 100%);
+
+  margin: 0 auto;
+
+  font-size: 1.12rem;
+}
+
+.center-text p {
+  margin-bottom: 1.5rem;
+}
+
+.center-text p:last-child {
   margin-bottom: 0;
 }
 
 
-.contact-callout p {
-  max-width: 30rem;
+/* =====================================================
+   ÜBER UNS – TEAMFOTO
+===================================================== */
+
+.team-photo-section {
+  background: var(--paper);
+
+  padding:
+    clamp(4rem, 7vw, 6rem)
+    clamp(1.25rem, 4vw, 4rem)
+    clamp(5rem, 8vw, 7rem);
+}
+
+.section-title-center {
+  width: min(1000px, 100%);
+
+  margin: 0 auto 3rem;
+
+  text-align: center;
+}
+
+.section-title-center h2 {
+  margin-bottom: 0;
+}
+
+.team-photo {
+  width: min(1400px, 100%);
+
+  margin: 0 auto;
+}
+
+.team-photo img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+}
+
+
+/* Platzhalter, bis du das echte Foto einsetzt */
+
+.team-photo-placeholder {
+  width: 100%;
+
+  min-height: clamp(350px, 55vw, 700px);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #355b4e,
+      #779681 50%,
+      #d6a35c
+    );
+
+  color: white;
+
+  text-align: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.team-photo-placeholder::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 8%;
+
+  border: 1px solid rgba(255,255,255,0.45);
+}
+
+.team-photo-placeholder span {
+  position: relative;
+
+  z-index: 1;
+
+  padding: 0.6rem 1rem;
+
+  background: rgba(29,44,40,0.65);
+
+  font-size: 0.9rem;
+}
+
+
+/* =====================================================
+   ÜBER UNS – FILMPROJEKT
+===================================================== */
+
+.project-section {
+  background: var(--sand);
+}
+
+.project-content {
+  width: min(1000px, 100%);
+
+  margin: 0 auto;
+}
+
+.project-content .eyebrow {
+  color: var(--moss);
+}
+
+.project-content h2 {
+  margin-bottom: 2rem;
+}
+
+.project-reading-text {
+  font-size: 1.1rem;
+}
+
+.project-reading-text p {
+  margin-bottom: 1.5rem;
+}
+
+.project-reading-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =====================================================
+   KONTAKT-BANNER
+===================================================== */
+
+.contact-banner {
+  background: var(--moss);
+
+  color: var(--paper);
+
+  padding:
+    clamp(3.5rem, 7vw, 6rem)
+    clamp(1.25rem, 5vw, 5rem);
+}
+
+.contact-banner-inner {
+  width: min(1200px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: clamp(2rem, 7vw, 7rem);
+
+  align-items: center;
+}
+
+.contact-banner .eyebrow {
+  color: #d9dfc8;
+}
+
+.contact-banner h2 {
+  margin-bottom: 0;
+}
+
+.contact-banner p {
+  max-width: 32rem;
 }
 
 
 /* =====================================================
    FOOTER
-   ===================================================== */
+===================================================== */
 
 .site-footer {
   min-height: 90px;
@@ -590,11 +748,9 @@ h3 {
   font-size: 0.85rem;
 }
 
-
 .site-footer p {
   margin: 0;
 }
-
 
 .site-footer a {
   border-bottom: 1px solid var(--gold);
@@ -602,8 +758,8 @@ h3 {
 
 
 /* =====================================================
-   MOBILE
-   ===================================================== */
+   MOBILE / TABLET
+===================================================== */
 
 @media (max-width: 850px) {
 
@@ -611,6 +767,7 @@ h3 {
     min-height: 70px;
   }
 
+  /* Menübutton */
 
   .menu-button {
     display: flex;
@@ -620,13 +777,11 @@ h3 {
     align-items: center;
   }
 
-
   .menu-button span,
   .menu-button span::before {
     display: block;
 
     width: 20px;
-
     height: 1px;
 
     background: var(--ink);
@@ -634,11 +789,12 @@ h3 {
     content: "";
   }
 
-
   .menu-button span::before {
     transform: translateY(6px);
   }
 
+
+  /* Mobile Navigation */
 
   .main-nav {
     display: none;
@@ -648,7 +804,6 @@ h3 {
     top: 100%;
 
     left: 0;
-
     right: 0;
 
     padding:
@@ -667,34 +822,32 @@ h3 {
     border-bottom: 1px solid var(--line);
   }
 
-
   .main-nav.open {
     display: flex;
   }
 
 
-  /* HERO */
+  /* Mobile Hero */
 
   .hero {
     min-height: calc(100vh - 70px);
   }
 
-
-  .hero-background {
+  .hero-background,
+  .hero-visual {
     background-position: center center;
   }
 
-
-  .hero-overlay {
+  .hero-background::after,
+  .hero-visual::after {
     background:
       linear-gradient(
         180deg,
-        rgba(15,25,22,0.30) 0%,
-        rgba(15,25,22,0.60) 55%,
-        rgba(15,25,22,0.88) 100%
+        rgba(15,25,22,0.25) 0%,
+        rgba(15,25,22,0.55) 50%,
+        rgba(15,25,22,0.90) 100%
       );
   }
-
 
   .hero-content {
     padding:
@@ -703,37 +856,73 @@ h3 {
       4rem;
   }
 
-
   .hero-content h1 {
     font-size: clamp(3rem, 13vw, 5rem);
   }
-
 
   .hero-content .lead {
     font-size: 1rem;
   }
 
 
-  /* REST DER SEITE */
+  /* Allgemeine Bereiche */
 
   .intro-grid,
   .two-column,
-  .contact-callout {
+  .contact-banner-inner {
     grid-template-columns: 1fr;
   }
 
-
   .section {
-    padding-top: 3.5rem;
-
-    padding-bottom: 3.5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
 
-  .contact-callout {
-    padding: 2rem 1.5rem;
+  /* Über uns */
+
+  .about-hero {
+    padding:
+      4.5rem
+      1.25rem
+      4rem;
   }
 
+  .center-content h1 {
+    font-size: clamp(3rem, 11vw, 5rem);
+  }
+
+  .center-text {
+    font-size: 1.05rem;
+  }
+
+  .team-photo-section {
+    padding:
+      4rem
+      1.25rem
+      5rem;
+  }
+
+  .team-photo-placeholder {
+    min-height: 350px;
+  }
+
+  .project-reading-text {
+    font-size: 1.05rem;
+  }
+
+  .contact-banner-inner {
+    gap: 2rem;
+  }
+
+  .contact-banner {
+    padding:
+      4rem
+      1.25rem;
+  }
+
+
+  /* Footer */
 
   .site-footer {
     min-height: 110px;
@@ -744,9 +933,12 @@ h3 {
 
     gap: 0.8rem;
   }
-
 }
 
+
+/* =====================================================
+   KLEINE HANDYS
+===================================================== */
 
 @media (max-width: 500px) {
 
@@ -754,14 +946,33 @@ h3 {
     font-size: 0.88rem;
   }
 
-
   .hero-content h1 {
     font-size: clamp(2.8rem, 12vw, 4.5rem);
   }
-
 
   .hero-content {
     padding-top: 4rem;
   }
 
+  .about-hero {
+    padding-top: 4rem;
+  }
+
+  .center-content h1 {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
+  .team-photo-placeholder {
+    min-height: 280px;
+  }
+
+  .contact-banner {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .site-footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
