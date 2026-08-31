@@ -64,7 +64,6 @@ h3 {
   font-size: 1.35rem;
 }
 
-
 /* =====================================================
    ACCESSIBILITY
 ===================================================== */
@@ -82,7 +81,6 @@ h3 {
   z-index: 50;
 }
 
-
 /* =====================================================
    NAVIGATION
 ===================================================== */
@@ -90,10 +88,13 @@ h3 {
 .site-header {
   min-height: 78px;
   padding: 0 clamp(1.25rem, 5vw, 5rem);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   border-bottom: 1px solid var(--line);
+
   position: relative;
   background: var(--paper);
   z-index: 20;
@@ -103,6 +104,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 0.65rem;
+
   font-weight: 700;
   letter-spacing: -0.04em;
 }
@@ -110,13 +112,18 @@ h3 {
 .brand-mark {
   font-family: Fraunces, serif;
   font-size: 1.1rem;
+
   background: var(--moss);
   color: var(--paper);
+
   border-radius: 50%;
+
   width: 34px;
   height: 34px;
+
   display: grid;
   place-items: center;
+
   letter-spacing: -0.1em;
 }
 
@@ -140,13 +147,15 @@ h3 {
 
 .menu-button {
   display: none;
+
   border: 0;
   background: transparent;
+
   font: inherit;
   color: var(--ink);
+
   cursor: pointer;
 }
-
 
 /* =====================================================
    STARTSEITE – HERO
@@ -154,10 +163,14 @@ h3 {
 
 .hero {
   position: relative;
+
   min-height: calc(100vh - 78px);
+
   display: flex;
   align-items: center;
+
   overflow: hidden;
+
   background: #1d2c28;
 }
 
@@ -165,6 +178,7 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: 0;
+
   background-image: url("titelbild.jpg.jpeg");
   background-size: cover;
   background-position: center center;
@@ -175,6 +189,7 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: 1;
+
   background:
     linear-gradient(
       90deg,
@@ -187,10 +202,13 @@ h3 {
 .hero-content {
   position: relative;
   z-index: 2;
+
   width: min(1200px, 100%);
+
   padding:
     clamp(5rem, 10vw, 9rem)
     clamp(1.5rem, 8vw, 9rem);
+
   color: white;
 }
 
@@ -201,8 +219,11 @@ h3 {
 .hero-content h1 {
   max-width: 950px;
   margin-bottom: 1.5rem;
+
   color: white;
-  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.45);
+
+  text-shadow:
+    0 3px 20px rgba(0, 0, 0, 0.45);
 }
 
 .hero-content h1 em {
@@ -212,11 +233,14 @@ h3 {
 
 .hero-content .lead {
   max-width: 650px;
-  color: white;
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
 
+  color: white;
+
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.5);
+}
 
 /* =====================================================
    BUTTONS
@@ -226,11 +250,20 @@ h3 {
   display: inline-flex;
   gap: 0.9rem;
   align-items: center;
+
   margin-top: 1.4rem;
+
   background: var(--moss);
   color: white;
-  padding: 0.83rem 1.1rem 0.83rem 1.35rem;
+
+  padding:
+    0.83rem
+    1.1rem
+    0.83rem
+    1.35rem;
+
   font-weight: 600;
+
   transition:
     background 0.2s,
     transform 0.2s;
@@ -246,14 +279,13 @@ h3 {
 }
 
 .button-light {
-  background: white;
-  color: var(--moss);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .button-light:hover {
-  background: var(--sand);
+  background: white;
 }
-
 
 /* =====================================================
    ALLGEMEINE ELEMENTE
@@ -261,23 +293,56 @@ h3 {
 
 .eyebrow {
   font-family: "DM Mono", monospace;
+
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+
   color: var(--moss);
+
   margin-bottom: 1.25rem;
 }
 
 .section {
   padding:
     clamp(4rem, 9vw, 8rem)
-    clamp(1.5rem, 8vw, 9rem);
+    clamp(2rem, 10vw, 10rem);
 }
+
+.tinted-section {
+  background: var(--sand);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: var(--moss);
+
+  font-weight: 700;
+
+  border-bottom: 1px solid var(--moss);
+}
+
+.text-link span {
+  font-size: 1.2rem;
+}
+
+/* =====================================================
+   STARTSEITE – INTRO
+===================================================== */
 
 .intro-grid {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 9vw, 9rem);
+
+  gap: clamp(3rem, 8vw, 9rem);
+
+  max-width: 1200px;
+  margin: 0 auto;
+
   border-top: 1px solid var(--line);
   padding-top: 2rem;
 }
@@ -286,45 +351,22 @@ h3 {
   font-size: 1.12rem;
 }
 
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--moss);
-  font-weight: 700;
-  border-bottom: 1px solid var(--moss);
-}
-
-.text-link span {
-  font-size: 1.2rem;
-}
-
-.tinted-section {
-  background: var(--sand);
-}
-
-.section-heading {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-}
-
-.section-heading h2 {
-  margin-bottom: 0;
-}
-
-
 /* =====================================================
    ZWEI SPALTEN
 ===================================================== */
 
 .two-column {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 8vw, 7rem);
-  align-items: center;
-}
 
+  grid-template-columns: 1fr 1fr;
+
+  gap: clamp(3rem, 8vw, 8rem);
+
+  align-items: center;
+
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 /* =====================================================
    BILDER
@@ -332,9 +374,12 @@ h3 {
 
 .image-placeholder {
   position: relative;
+
   display: grid;
   place-items: center;
+
   overflow: hidden;
+
   min-height: 380px;
 
   background:
@@ -356,141 +401,85 @@ h3 {
 
 .image-placeholder::before {
   content: "";
+
   position: absolute;
+
   inset: 12%;
+
   border: 1px solid rgba(255,255,255,0.45);
+
   transform: rotate(-8deg);
 }
 
 .image-placeholder span {
   z-index: 1;
+
   padding: 0.4rem 0.7rem;
+
   background: rgba(29,44,40,0.6);
+
   font-size: 0.8rem;
 }
 
 .image-placeholder.tall {
-  min-height: 440px;
+  min-height: 520px;
 }
-
 
 /* =====================================================
-   ZITAT
-===================================================== */
-
-.quote-section {
-  text-align: center;
-  max-width: 65rem;
-  margin: auto;
-}
-
-.quote-section blockquote {
-  margin: 0;
-  font-family: Fraunces, serif;
-  font-size: clamp(2rem, 4vw, 3.8rem);
-  line-height: 1.1;
-}
-
-
-/* =====================================================
-   KONTAKT – ALLGEMEIN
-===================================================== */
-
-.contact-callout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-  background: var(--sand);
-  padding: clamp(2rem, 5vw, 4rem);
-}
-
-.contact-callout h2 {
-  margin-bottom: 0;
-}
-
-.contact-callout p {
-  max-width: 30rem;
-}
-
-
-/* =====================================================
-   ÜBER UNS – TITEL
+   ÜBER UNS
 ===================================================== */
 
 .about-hero {
   background: var(--sand);
+
   padding:
     clamp(5rem, 9vw, 8rem)
-    1.5rem
-    clamp(4rem, 8vw, 7rem);
-  text-align: center;
+    2rem;
 }
 
 .center-content {
-  width: min(1050px, 100%);
+  max-width: 1050px;
   margin: 0 auto;
-}
 
-.about-hero .eyebrow {
-  margin-bottom: 1.5rem;
-}
-
-.about-hero h1 {
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
-.about-hero h1 em {
-  color: var(--moss);
-}
-
-
-/* =====================================================
-   ÜBER UNS – TEXT
-===================================================== */
-
-.about-intro {
-  padding:
-    clamp(5rem, 9vw, 8rem)
-    1.5rem;
-}
-
-.center-text {
-  width: min(900px, 100%);
-  margin: 0 auto;
-}
-
-.center-text p {
-  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
-  margin-bottom: 1.6rem;
-}
-
-.center-text p:last-child {
-  margin-bottom: 0;
-}
-
-
-/* =====================================================
-   ÜBER UNS – TEAMFOTO
-===================================================== */
-
-.team-photo-section {
-  background: var(--paper);
-  padding:
-    clamp(4rem, 8vw, 7rem)
-    0
-    clamp(5rem, 9vw, 8rem);
-}
-
-.section-title-center {
-  width: min(1050px, calc(100% - 3rem));
-  margin: 0 auto 3rem;
   text-align: center;
 }
 
-.section-title-center .eyebrow {
-  margin-bottom: 1rem;
+.center-content h1 {
+  margin-bottom: 0;
+}
+
+.about-intro {
+  background: var(--paper);
+}
+
+.center-text {
+  max-width: 900px;
+  margin: 0 auto;
+
+  font-size: 1.12rem;
+}
+
+.center-text p {
+  margin-bottom: 1.6rem;
+}
+
+/* =====================================================
+   P-SEMINAR TEAMFOTO
+===================================================== */
+
+.team-photo-section {
+  padding:
+    clamp(5rem, 9vw, 8rem)
+    clamp(1.25rem, 4vw, 4rem);
+
+  background: var(--paper);
+}
+
+.section-title-center {
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+
+  text-align: center;
 }
 
 .section-title-center h2 {
@@ -499,62 +488,176 @@ h3 {
 
 .team-photo {
   width: 100%;
-  padding: 0 clamp(1rem, 4vw, 4rem);
+  max-width: 1500px;
+
+  margin: 0 auto;
 }
 
 .team-photo-placeholder {
   width: 100%;
-  min-height: clamp(350px, 50vw, 700px);
+  min-height: 650px;
 
   display: grid;
   place-items: center;
 
   background:
     linear-gradient(
-      140deg,
-      rgba(29, 44, 40, 0.8),
-      rgba(53, 91, 78, 0.3)
-    ),
-    linear-gradient(
-      40deg,
-      #8f9c79,
-      #d5a668 52%,
-      #486d5e
+      135deg,
+      #355b4e,
+      #d6a35c 55%,
+      #1d2c28
     );
 
   color: white;
-  text-align: center;
+
   position: relative;
   overflow: hidden;
 }
 
 .team-photo-placeholder::before {
   content: "";
+
   position: absolute;
-  inset: 6%;
+
+  inset: 5%;
+
   border: 1px solid rgba(255,255,255,0.45);
-  transform: rotate(-2deg);
 }
 
 .team-photo-placeholder span {
   position: relative;
-  z-index: 2;
-  padding: 0.6rem 1rem;
+  z-index: 1;
+
+  padding: 0.8rem 1.2rem;
+
   background: rgba(29,44,40,0.65);
-  font-size: 0.9rem;
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 0.8rem;
 }
 
+/* =====================================================
+   UNSERE ARBEIT
+===================================================== */
+
+.work-hero {
+  background: var(--sand);
+
+  padding:
+    clamp(5rem, 9vw, 8rem)
+    2rem;
+}
+
+.work-title {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.work-title h1 {
+  margin-bottom: 0;
+}
+
+/* FILMVORSTELLUNG */
+
+.event-section {
+  background: var(--moss);
+
+  color: var(--paper);
+
+  padding:
+    clamp(4rem, 7vw, 7rem)
+    2rem;
+}
+
+.event-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.event-inner h2 {
+  color: var(--paper);
+
+  font-size: clamp(2.5rem, 5vw, 5rem);
+
+  margin-bottom: 0;
+}
+
+/* FLYER */
+
+.flyer-section {
+  padding:
+    clamp(5rem, 8vw, 8rem)
+    1.25rem;
+
+  background: var(--paper);
+}
+
+.flyer-placeholder {
+  width: min(100%, 800px);
+
+  min-height: 900px;
+
+  margin: 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #d6a35c,
+      #517060 50%,
+      #1d2c28
+    );
+
+  color: white;
+
+  box-shadow:
+    18px 20px 0 var(--sand);
+}
+
+.flyer-placeholder::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 5%;
+
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.flyer-placeholder span {
+  position: relative;
+  z-index: 1;
+
+  padding: 0.8rem 1.2rem;
+
+  background: rgba(29,44,40,0.65);
+
+  font-family: "DM Mono", monospace;
+
+  font-size: 0.8rem;
+}
 
 /* =====================================================
-   ÜBER UNS – FILMPROJEKT
+   GESAMTE ARBEIT
 ===================================================== */
 
 .project-section {
-  background: var(--sand);
+  background: var(--paper);
 }
 
 .project-content {
-  width: min(1050px, 100%);
+  max-width: 1000px;
+
   margin: 0 auto;
 }
 
@@ -564,46 +667,79 @@ h3 {
 
 .project-content h2 {
   margin-bottom: 2.5rem;
-  max-width: 850px;
+
+  color: var(--ink);
 }
 
 .project-reading-text {
-  max-width: 850px;
+  font-size: 1.12rem;
 }
 
 .project-reading-text p {
-  font-size: 1.08rem;
-  margin-bottom: 1.6rem;
-}
-
-.project-reading-text p:last-child {
-  margin-bottom: 0;
+  margin-bottom: 1.7rem;
 }
 
 .project-reading-text strong {
-  font-weight: 700;
+  color: var(--moss);
 }
 
+/* =====================================================
+   WARUM DIESE WEBSITE?
+===================================================== */
+
+.project-reading-text h3 {
+  margin-top: 4rem;
+
+  margin-bottom: 1.5rem;
+
+  font-family: Fraunces, Georgia, serif;
+
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+
+  color: var(--ink);
+}
 
 /* =====================================================
-   ÜBER UNS – KONTAKTBANNER
+   ABSCHLUSS
+===================================================== */
+
+.closing-line {
+  margin-top: 3rem;
+
+  font-family: Fraunces, Georgia, serif;
+
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+
+  line-height: 1.2;
+
+  color: var(--moss);
+}
+
+/* =====================================================
+   KONTAKT-BANNER
 ===================================================== */
 
 .contact-banner {
   background: var(--moss);
+
   color: var(--paper);
+
   padding:
-    clamp(4rem, 7vw, 6rem)
-    1.5rem;
+    clamp(4rem, 7vw, 7rem)
+    clamp(1.5rem, 8vw, 8rem);
 }
 
 .contact-banner-inner {
-  width: min(1050px, 100%);
+  max-width: 1200px;
+
   margin: 0 auto;
 
   display: grid;
+
   grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 7vw, 7rem);
+
+  gap: clamp(3rem, 8vw, 8rem);
+
   align-items: center;
 }
 
@@ -612,6 +748,8 @@ h3 {
 }
 
 .contact-banner h2 {
+  color: var(--paper);
+
   margin-bottom: 0;
 }
 
@@ -620,14 +758,36 @@ h3 {
 }
 
 .contact-banner .button {
-  background: white;
-  color: var(--moss);
+  background: var(--paper);
+
+  color: var(--ink);
 }
 
 .contact-banner .button:hover {
-  background: var(--sand);
+  background: white;
 }
 
+/* =====================================================
+   ZITAT
+===================================================== */
+
+.quote-section {
+  text-align: center;
+
+  max-width: 1000px;
+
+  margin: auto;
+}
+
+.quote-section blockquote {
+  margin: 0;
+
+  font-family: Fraunces, serif;
+
+  font-size: clamp(2rem, 4vw, 3.8rem);
+
+  line-height: 1.1;
+}
 
 /* =====================================================
    FOOTER
@@ -635,16 +795,21 @@ h3 {
 
 .site-footer {
   min-height: 90px;
+
   padding:
     1.5rem
     clamp(1.25rem, 5vw, 5rem);
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
   background: var(--ink);
+
   color: var(--paper);
+
   font-size: 0.85rem;
 }
 
@@ -656,9 +821,8 @@ h3 {
   border-bottom: 1px solid var(--gold);
 }
 
-
 /* =====================================================
-   MOBILE – BIS 850 PX
+   MOBILE
 ===================================================== */
 
 @media (max-width: 850px) {
@@ -669,16 +833,24 @@ h3 {
 
   .menu-button {
     display: flex;
+
     gap: 0.5rem;
+
     align-items: center;
+
+    cursor: pointer;
   }
 
   .menu-button span,
   .menu-button span::before {
     display: block;
+
     width: 20px;
+
     height: 1px;
+
     background: var(--ink);
+
     content: "";
   }
 
@@ -688,9 +860,13 @@ h3 {
 
   .main-nav {
     display: none;
+
     position: absolute;
+
     top: 100%;
+
     left: 0;
+
     right: 0;
 
     padding:
@@ -699,26 +875,26 @@ h3 {
       1.5rem;
 
     flex-direction: column;
+
     align-items: flex-start;
+
     gap: 0.55rem;
 
     background: var(--paper);
+
     border-bottom: 1px solid var(--line);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   }
 
   .main-nav.open {
     display: flex;
   }
 
-
-  /* STARTSEITE */
+  /* HERO */
 
   .hero {
     min-height: calc(100vh - 70px);
-  }
-
-  .hero-background {
-    background-position: center center;
   }
 
   .hero-overlay {
@@ -746,64 +922,80 @@ h3 {
     font-size: 1rem;
   }
 
-
   /* ALLGEMEIN */
 
-  .intro-grid,
-  .two-column,
-  .contact-callout,
-  .contact-banner-inner {
-    grid-template-columns: 1fr;
-  }
-
   .section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-
-  /* ÜBER UNS */
-
-  .about-hero {
-    padding:
-      4.5rem
-      1.5rem
-      4rem;
-  }
-
-  .about-hero h1 {
-    font-size: clamp(3rem, 11vw, 5rem);
-  }
-
-  .about-intro {
     padding:
       4rem
       1.5rem;
   }
 
-  .center-text {
-    width: min(700px, 100%);
+  .intro-grid,
+  .two-column,
+  .contact-banner-inner {
+    grid-template-columns: 1fr;
   }
+
+  .intro-grid {
+    gap: 2.5rem;
+  }
+
+  /* ÜBER UNS */
+
+  .about-hero,
+  .work-hero {
+    padding:
+      5rem
+      1.5rem;
+  }
+
+  .center-content h1 {
+    font-size: clamp(2.8rem, 11vw, 4.5rem);
+  }
+
+  .center-text {
+    font-size: 1rem;
+  }
+
+  /* TEAMFOTO */
 
   .team-photo-section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  .team-photo {
-    padding: 0 1rem;
+    padding:
+      4.5rem
+      1rem;
   }
 
   .team-photo-placeholder {
-    min-height: 420px;
+    min-height: 400px;
   }
 
-  .project-content {
-    width: 100%;
+  /* UNSERE ARBEIT */
+
+  .event-section {
+    padding:
+      4.5rem
+      1.5rem;
   }
 
-  .project-content h2 {
-    margin-bottom: 2rem;
+  .event-inner h2 {
+    font-size: clamp(2.3rem, 10vw, 4rem);
+  }
+
+  .flyer-section {
+    padding:
+      4rem
+      1rem;
+  }
+
+  .flyer-placeholder {
+    min-height: 650px;
+
+    box-shadow:
+      10px 12px 0 var(--sand);
+  }
+
+  .project-reading-text {
+    font-size: 1rem;
   }
 
   .contact-banner {
@@ -816,20 +1008,19 @@ h3 {
     gap: 2rem;
   }
 
-
-  /* FOOTER */
-
   .site-footer {
-    min-height: 110px;
+    min-height: 120px;
+
     align-items: flex-start;
+
     flex-direction: column;
+
     gap: 0.8rem;
   }
 }
 
-
 /* =====================================================
-   MOBILE – BIS 500 PX
+   KLEINE HANDYS
 ===================================================== */
 
 @media (max-width: 500px) {
@@ -846,63 +1037,24 @@ h3 {
     font-size: clamp(2.8rem, 12vw, 4.5rem);
   }
 
-  .about-hero {
-    padding:
-      4rem
-      1.25rem
-      3.5rem;
-  }
-
-  .about-hero h1 {
-    font-size: clamp(2.7rem, 12vw, 4rem);
-  }
-
-  .about-intro {
+  .section {
     padding:
       3.5rem
       1.25rem;
-  }
-
-  .center-text p {
-    font-size: 1rem;
-  }
-
-  .team-photo-section {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
-
-  .section-title-center {
-    width: calc(100% - 2.5rem);
-    margin-bottom: 2rem;
-  }
-
-  .team-photo {
-    padding: 0 0.75rem;
   }
 
   .team-photo-placeholder {
     min-height: 300px;
   }
 
-  .project-section {
-    padding:
-      3.5rem
-      1.25rem;
-  }
-
-  .project-reading-text p {
-    font-size: 1rem;
+  .flyer-placeholder {
+    min-height: 560px;
   }
 
   .contact-banner {
     padding:
       3.5rem
       1.25rem;
-  }
-
-  .contact-banner h2 {
-    font-size: 2.2rem;
   }
 
 }
