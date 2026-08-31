@@ -1,4 +1,4 @@
-```javascript
+javascript
 document.querySelectorAll('[data-year]').forEach((element) => {
     element.textContent = new Date().getFullYear();
 });
@@ -159,4 +159,3 @@ document.addEventListener("keydown", (event) => {
     }
 
 });
-```
