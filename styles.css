@@ -775,97 +775,183 @@ h3 {
 ===================================================== */
 
 .work-photo-section {
-  background: var(--paper);
-
-  padding:
-    clamp(5rem, 8vw, 8rem)
-    clamp(1.25rem, 5vw, 5rem);
+    background: var(--sand);
+    padding:
+        clamp(6rem, 10vw, 10rem)
+        clamp(1.25rem, 5vw, 5rem)
+        clamp(6rem, 10vw, 10rem);
 }
 
 .work-photo-title {
-  width: min(1200px, 100%);
-  margin: 0 auto 2.5rem;
-
-  text-align: left;
+    width: min(1100px, 100%);
+    margin: 0 auto 3.5rem;
+    text-align: center;
 }
 
 .work-photo-title .eyebrow {
-  margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
+    color: var(--moss);
 }
 
 .work-photo-title h2 {
-  margin: 0;
-
-  font-size: clamp(2.3rem, 4.5vw, 4.2rem);
-
-  max-width: 800px;
+    margin: 0;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    line-height: 1;
+    color: var(--ink);
 }
 
+/* Großes Foto */
+
 .work-large-photo {
-  width: min(1500px, 100%);
-  margin: 0 auto;
+    width: min(1450px, 100%);
+    margin: 0 auto;
 }
 
 .work-photo-placeholder {
-  width: 100%;
+    width: 100%;
+    min-height: 650px;
 
-  min-height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  display: grid;
-  place-items: center;
+    position: relative;
+    overflow: hidden;
 
-  position: relative;
-  overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(29, 44, 40, 0.75),
+            rgba(53, 91, 78, 0.35)
+        ),
+        linear-gradient(
+            45deg,
+            #8f9c79,
+            #d6a35c 55%,
+            #355b4e
+        );
 
-  background:
-    linear-gradient(
-      135deg,
-      #355b4e,
-      #d6a35c 55%,
-      #1d2c28
-    );
+    color: white;
 
-  color: white;
+    border-radius: 2px;
+
+    box-shadow:
+        18px 20px 0 rgba(29, 44, 40, 0.12);
 }
+
+/* Rahmen über dem Platzhalter */
 
 .work-photo-placeholder::before {
-  content: "";
+    content: "";
 
-  position: absolute;
+    position: absolute;
+    inset: 2rem;
 
-  inset: 2.5%;
+    border: 1px solid rgba(255,255,255,0.4);
 
-  border: 1px solid rgba(255,255,255,0.45);
-
-  pointer-events: none;
+    pointer-events: none;
 }
+
+/* Platzhaltertext */
 
 .work-photo-placeholder span {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 2;
 
-  padding: 0.8rem 1.2rem;
+    padding: 0.9rem 1.3rem;
 
-  background: rgba(29,44,40,0.65);
+    background: rgba(29,44,40,0.7);
 
-  font-family: "DM Mono", monospace;
+    font-family: "DM Mono", monospace;
+    font-size: 0.78rem;
 
-  font-size: 0.8rem;
-
-  text-align: center;
+    letter-spacing: 0.04em;
 }
 
-/* ECHTES FOTO */
+/* =====================================================
+   ECHTES FOTO
+===================================================== */
 
-.work-photo-placeholder img {
-  width: 100%;
-  height: 100%;
+.work-large-photo img {
+    display: block;
 
-  min-height: 620px;
+    width: 100%;
+    height: auto;
 
-  display: block;
+    max-height: 800px;
 
-  object-fit: cover;
+    object-fit: cover;
+
+    border-radius: 2px;
+
+    box-shadow:
+        18px 20px 0 rgba(29, 44, 40, 0.12);
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .work-photo-section {
+        padding:
+            5rem
+            1rem
+            5rem;
+    }
+
+    .work-photo-title {
+        margin-bottom: 2.5rem;
+    }
+
+    .work-photo-title h2 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .work-photo-placeholder {
+        min-height: 420px;
+
+        box-shadow:
+            10px 12px 0 rgba(29, 44, 40, 0.12);
+    }
+
+    .work-photo-placeholder::before {
+        inset: 1.2rem;
+    }
+
+    .work-large-photo img {
+        box-shadow:
+            10px 12px 0 rgba(29, 44, 40, 0.12);
+    }
+}
+
+@media (max-width: 500px) {
+
+    .work-photo-section {
+        padding:
+            4rem
+            1rem
+            4rem;
+    }
+
+    .work-photo-title {
+        margin-bottom: 2rem;
+    }
+
+    .work-photo-title h2 {
+        font-size: 2.5rem;
+    }
+
+    .work-photo-placeholder {
+        min-height: 300px;
+    }
+
+    .work-photo-placeholder span {
+        max-width: 80%;
+        text-align: center;
+        font-size: 0.7rem;
+    }
 }
 
 /* =====================================================
