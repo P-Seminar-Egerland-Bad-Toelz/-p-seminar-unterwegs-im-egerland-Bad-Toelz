@@ -954,6 +954,302 @@ h3 {
     }
 }
 
+```css
+/* =====================================================
+   FOTOGALERIE
+===================================================== */
+
+.gallery-hero {
+    background: var(--sand);
+    padding:
+        clamp(6rem, 10vw, 9rem)
+        2rem
+        clamp(5rem, 8vw, 7rem);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-hero::after {
+    content: "";
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    right: -170px;
+    top: -190px;
+
+    border: 1px solid rgba(53, 91, 78, 0.18);
+}
+
+.gallery-hero-inner {
+    width: min(1050px, 100%);
+    margin: 0 auto;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-hero-inner .eyebrow {
+    margin-bottom: 1.3rem;
+}
+
+.gallery-hero-inner h1 {
+    margin: 0 0 2rem;
+
+    font-size: clamp(4rem, 8vw, 7rem);
+
+    color: var(--ink);
+}
+
+.gallery-intro {
+    width: min(700px, 100%);
+    margin: 0 auto;
+
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+
+    color: var(--muted);
+}
+
+
+/* =====================================================
+   GALERIE-BEREICH
+===================================================== */
+
+.gallery-section {
+    background: var(--paper);
+
+    padding:
+        clamp(5rem, 9vw, 9rem)
+        clamp(1rem, 4vw, 4rem)
+        clamp(6rem, 10vw, 10rem);
+}
+
+.gallery-heading {
+    width: min(1200px, 100%);
+    margin: 0 auto 3.5rem;
+
+    text-align: center;
+}
+
+.gallery-heading .eyebrow {
+    margin-bottom: 1rem;
+}
+
+.gallery-heading h2 {
+    margin: 0;
+
+    font-size: clamp(2.8rem, 5vw, 5rem);
+}
+
+
+/* =====================================================
+   FOTO-GRID
+===================================================== */
+
+.photo-gallery {
+    width: min(1500px, 100%);
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    grid-auto-rows: 260px;
+
+    gap: 10px;
+}
+
+
+/* Einzelnes Bild */
+
+.gallery-item {
+    position: relative;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    background: var(--sand);
+
+    cursor: pointer;
+}
+
+
+/* Unterschiedliche Bildgrößen */
+
+.gallery-item:nth-child(5n + 1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gallery-item:nth-child(7n + 3) {
+    grid-row: span 2;
+}
+
+.gallery-item:nth-child(9n + 5) {
+    grid-column: span 2;
+}
+
+
+/* Bilder */
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+
+/* Hover */
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+
+    filter: brightness(0.88);
+}
+
+
+/* Kleiner Hover-Hinweis */
+
+.gallery-item::after {
+    content: "↗";
+
+    position: absolute;
+
+    right: 1rem;
+    bottom: 1rem;
+
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(29, 44, 40, 0.78);
+
+    color: white;
+
+    font-size: 1rem;
+
+    opacity: 0;
+
+    transform: translateY(5px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   MOBILE / TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .photo-gallery {
+        grid-template-columns: repeat(3, 1fr);
+
+        grid-auto-rows: 230px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .gallery-hero {
+        padding:
+            5rem
+            1.5rem
+            4.5rem;
+    }
+
+    .gallery-hero-inner h1 {
+        font-size: clamp(3.5rem, 15vw, 5rem);
+    }
+
+    .gallery-intro {
+        font-size: 1rem;
+    }
+
+
+    .gallery-section {
+        padding:
+            4rem
+            1rem
+            5rem;
+    }
+
+    .gallery-heading {
+        margin-bottom: 2.5rem;
+    }
+
+    .gallery-heading h2 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+
+        grid-auto-rows: 190px;
+
+        gap: 7px;
+    }
+
+
+    .gallery-item:nth-child(5n + 1) {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .gallery-hero {
+        padding:
+            4rem
+            1.25rem
+            4rem;
+    }
+
+    .gallery-hero-inner h1 {
+        font-size: 3.4rem;
+    }
+
+
+    .photo-gallery {
+        grid-template-columns: 1fr 1fr;
+
+        grid-auto-rows: 150px;
+
+        gap: 5px;
+    }
+
+}
+
 /* =====================================================
    KONTAKT – IMMER DUNKELGRÜN
 ===================================================== */
