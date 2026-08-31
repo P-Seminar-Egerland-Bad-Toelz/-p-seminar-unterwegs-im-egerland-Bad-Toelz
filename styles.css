@@ -79,7 +79,7 @@ h3 {
   top: 1rem;
   background: white;
   padding: 0.5rem;
-  z-index: 100;
+  z-index: 50;
 }
 
 
@@ -90,13 +90,10 @@ h3 {
 .site-header {
   min-height: 78px;
   padding: 0 clamp(1.25rem, 5vw, 5rem);
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   border-bottom: 1px solid var(--line);
-
   position: relative;
   background: var(--paper);
   z-index: 20;
@@ -106,7 +103,6 @@ h3 {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-
   font-weight: 700;
   letter-spacing: -0.04em;
 }
@@ -114,18 +110,13 @@ h3 {
 .brand-mark {
   font-family: Fraunces, serif;
   font-size: 1.1rem;
-
   background: var(--moss);
   color: var(--paper);
-
   border-radius: 50%;
-
   width: 34px;
   height: 34px;
-
   display: grid;
   place-items: center;
-
   letter-spacing: -0.1em;
 }
 
@@ -133,7 +124,6 @@ h3 {
   display: flex;
   gap: 1.35rem;
   align-items: center;
-
   font-size: 0.87rem;
 }
 
@@ -150,13 +140,10 @@ h3 {
 
 .menu-button {
   display: none;
-
   border: 0;
   background: transparent;
-
   font: inherit;
   color: var(--ink);
-
   cursor: pointer;
 }
 
@@ -167,69 +154,43 @@ h3 {
 
 .hero {
   position: relative;
-
   min-height: calc(100vh - 78px);
-
   display: flex;
   align-items: center;
-
   overflow: hidden;
-
   background: #1d2c28;
 }
 
-
-/* Titelbild */
-
-.hero-background,
-.hero-visual {
+.hero-background {
   position: absolute;
-
   inset: 0;
-
   z-index: 0;
-
   background-image: url("titelbild.jpg.jpeg");
-
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
 
-
-/* dunkle Ebene über dem Foto */
-
-.hero-background::after,
-.hero-visual::after {
-  content: "";
-
+.hero-overlay {
   position: absolute;
   inset: 0;
-
+  z-index: 1;
   background:
     linear-gradient(
       90deg,
-      rgba(15, 25, 22, 0.82) 0%,
-      rgba(15, 25, 22, 0.58) 45%,
+      rgba(15, 25, 22, 0.80) 0%,
+      rgba(15, 25, 22, 0.55) 45%,
       rgba(15, 25, 22, 0.20) 100%
     );
 }
 
-
-/* Hero-Inhalt */
-
 .hero-content {
   position: relative;
   z-index: 2;
-
   width: min(1200px, 100%);
-
-  margin: 0 auto;
-
   padding:
     clamp(5rem, 10vw, 9rem)
-    clamp(1.5rem, 7vw, 7rem);
-
+    clamp(1.5rem, 8vw, 9rem);
   color: white;
 }
 
@@ -239,13 +200,9 @@ h3 {
 
 .hero-content h1 {
   max-width: 950px;
-
   margin-bottom: 1.5rem;
-
   color: white;
-
-  text-shadow:
-    0 3px 20px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.45);
 }
 
 .hero-content h1 em {
@@ -255,13 +212,9 @@ h3 {
 
 .hero-content .lead {
   max-width: 650px;
-
   color: white;
-
   font-size: clamp(1rem, 1.6vw, 1.2rem);
-
-  text-shadow:
-    0 2px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -271,23 +224,13 @@ h3 {
 
 .button {
   display: inline-flex;
-
   gap: 0.9rem;
   align-items: center;
-
   margin-top: 1.4rem;
-
   background: var(--moss);
   color: white;
-
-  padding:
-    0.83rem
-    1.1rem
-    0.83rem
-    1.35rem;
-
+  padding: 0.83rem 1.1rem 0.83rem 1.35rem;
   font-weight: 600;
-
   transition:
     background 0.2s,
     transform 0.2s;
@@ -302,16 +245,13 @@ h3 {
   transform: translateY(-2px);
 }
 
-
-/* heller Button */
-
 .button-light {
-  background: var(--paper);
+  background: white;
   color: var(--moss);
 }
 
 .button-light:hover {
-  background: white;
+  background: var(--sand);
 }
 
 
@@ -321,35 +261,37 @@ h3 {
 
 .eyebrow {
   font-family: "DM Mono", monospace;
-
   font-size: 0.72rem;
-
   text-transform: uppercase;
-
   letter-spacing: 0.12em;
-
   color: var(--moss);
-
   margin-bottom: 1.25rem;
 }
 
 .section {
   padding:
-    clamp(4rem, 8vw, 7rem)
-    clamp(1.25rem, 5vw, 5rem);
+    clamp(4rem, 9vw, 8rem)
+    clamp(1.5rem, 8vw, 9rem);
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 9vw, 9rem);
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+}
+
+.intro-grid p {
+  font-size: 1.12rem;
 }
 
 .text-link {
   display: inline-flex;
-
   align-items: center;
-
   gap: 0.5rem;
-
   color: var(--moss);
-
   font-weight: 700;
-
   border-bottom: 1px solid var(--moss);
 }
 
@@ -364,7 +306,6 @@ h3 {
 .section-heading {
   display: flex;
   justify-content: space-between;
-
   margin-bottom: 2.5rem;
 }
 
@@ -374,45 +315,13 @@ h3 {
 
 
 /* =====================================================
-   STARTSEITE – TEXTBEREICHE
-===================================================== */
-
-.intro-grid {
-  width: min(1200px, 100%);
-
-  margin: 0 auto;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: clamp(2rem, 7vw, 7rem);
-
-  border-top: 1px solid var(--line);
-
-  padding-top: 2rem;
-}
-
-.intro-grid p {
-  font-size: 1.12rem;
-}
-
-
-/* =====================================================
    ZWEI SPALTEN
 ===================================================== */
 
 .two-column {
-  width: min(1200px, 100%);
-
-  margin: 0 auto;
-
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
-  gap: clamp(2rem, 7vw, 7rem);
-
+  gap: clamp(2rem, 8vw, 7rem);
   align-items: center;
 }
 
@@ -423,12 +332,9 @@ h3 {
 
 .image-placeholder {
   position: relative;
-
   display: grid;
   place-items: center;
-
   overflow: hidden;
-
   min-height: 380px;
 
   background:
@@ -445,29 +351,21 @@ h3 {
     );
 
   color: white;
-
   text-align: center;
 }
 
 .image-placeholder::before {
   content: "";
-
   position: absolute;
-
   inset: 12%;
-
   border: 1px solid rgba(255,255,255,0.45);
-
   transform: rotate(-8deg);
 }
 
 .image-placeholder span {
   z-index: 1;
-
   padding: 0.4rem 0.7rem;
-
   background: rgba(29,44,40,0.6);
-
   font-size: 0.8rem;
 }
 
@@ -482,20 +380,37 @@ h3 {
 
 .quote-section {
   text-align: center;
-
   max-width: 65rem;
-
   margin: auto;
 }
 
 .quote-section blockquote {
   margin: 0;
-
   font-family: Fraunces, serif;
-
   font-size: clamp(2rem, 4vw, 3.8rem);
-
   line-height: 1.1;
+}
+
+
+/* =====================================================
+   KONTAKT – ALLGEMEIN
+===================================================== */
+
+.contact-callout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: var(--sand);
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.contact-callout h2 {
+  margin-bottom: 0;
+}
+
+.contact-callout p {
+  max-width: 30rem;
 }
 
 
@@ -505,49 +420,50 @@ h3 {
 
 .about-hero {
   background: var(--sand);
-
   padding:
     clamp(5rem, 9vw, 8rem)
-    1.25rem
-    clamp(4rem, 7vw, 6rem);
+    1.5rem
+    clamp(4rem, 8vw, 7rem);
+  text-align: center;
 }
 
 .center-content {
   width: min(1050px, 100%);
-
   margin: 0 auto;
-
-  text-align: center;
 }
 
-.center-content h1 {
-  margin-bottom: 0;
+.about-hero .eyebrow {
+  margin-bottom: 1.5rem;
 }
 
-.center-content h1 em {
+.about-hero h1 {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.about-hero h1 em {
   color: var(--moss);
 }
 
 
 /* =====================================================
-   ÜBER UNS – EINLEITUNG
+   ÜBER UNS – TEXT
 ===================================================== */
 
 .about-intro {
-  padding-top: clamp(4rem, 7vw, 6rem);
-  padding-bottom: clamp(4rem, 7vw, 6rem);
+  padding:
+    clamp(5rem, 9vw, 8rem)
+    1.5rem;
 }
 
 .center-text {
   width: min(900px, 100%);
-
   margin: 0 auto;
-
-  font-size: 1.12rem;
 }
 
 .center-text p {
-  margin-bottom: 1.5rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  margin-bottom: 1.6rem;
 }
 
 .center-text p:last-child {
@@ -561,19 +477,20 @@ h3 {
 
 .team-photo-section {
   background: var(--paper);
-
   padding:
-    clamp(4rem, 7vw, 6rem)
-    clamp(1.25rem, 4vw, 4rem)
-    clamp(5rem, 8vw, 7rem);
+    clamp(4rem, 8vw, 7rem)
+    0
+    clamp(5rem, 9vw, 8rem);
 }
 
 .section-title-center {
-  width: min(1000px, 100%);
-
+  width: min(1050px, calc(100% - 3rem));
   margin: 0 auto 3rem;
-
   text-align: center;
+}
+
+.section-title-center .eyebrow {
+  margin-bottom: 1rem;
 }
 
 .section-title-center h2 {
@@ -581,69 +498,49 @@ h3 {
 }
 
 .team-photo {
-  width: min(1400px, 100%);
-
-  margin: 0 auto;
-}
-
-.team-photo img {
-  display: block;
-
   width: 100%;
-  height: auto;
-
-  object-fit: cover;
+  padding: 0 clamp(1rem, 4vw, 4rem);
 }
-
-
-/* Platzhalter, bis du das echte Foto einsetzt */
 
 .team-photo-placeholder {
   width: 100%;
+  min-height: clamp(350px, 50vw, 700px);
 
-  min-height: clamp(350px, 55vw, 700px);
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 
   background:
     linear-gradient(
-      135deg,
-      #355b4e,
-      #779681 50%,
-      #d6a35c
+      140deg,
+      rgba(29, 44, 40, 0.8),
+      rgba(53, 91, 78, 0.3)
+    ),
+    linear-gradient(
+      40deg,
+      #8f9c79,
+      #d5a668 52%,
+      #486d5e
     );
 
   color: white;
-
   text-align: center;
-
   position: relative;
-
   overflow: hidden;
 }
 
 .team-photo-placeholder::before {
   content: "";
-
   position: absolute;
-
-  inset: 8%;
-
+  inset: 6%;
   border: 1px solid rgba(255,255,255,0.45);
+  transform: rotate(-2deg);
 }
 
 .team-photo-placeholder span {
   position: relative;
-
-  z-index: 1;
-
+  z-index: 2;
   padding: 0.6rem 1rem;
-
   background: rgba(29,44,40,0.65);
-
   font-size: 0.9rem;
 }
 
@@ -657,8 +554,7 @@ h3 {
 }
 
 .project-content {
-  width: min(1000px, 100%);
-
+  width: min(1050px, 100%);
   margin: 0 auto;
 }
 
@@ -667,47 +563,47 @@ h3 {
 }
 
 .project-content h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  max-width: 850px;
 }
 
 .project-reading-text {
-  font-size: 1.1rem;
+  max-width: 850px;
 }
 
 .project-reading-text p {
-  margin-bottom: 1.5rem;
+  font-size: 1.08rem;
+  margin-bottom: 1.6rem;
 }
 
 .project-reading-text p:last-child {
   margin-bottom: 0;
 }
 
+.project-reading-text strong {
+  font-weight: 700;
+}
+
 
 /* =====================================================
-   KONTAKT-BANNER
+   ÜBER UNS – KONTAKTBANNER
 ===================================================== */
 
 .contact-banner {
   background: var(--moss);
-
   color: var(--paper);
-
   padding:
-    clamp(3.5rem, 7vw, 6rem)
-    clamp(1.25rem, 5vw, 5rem);
+    clamp(4rem, 7vw, 6rem)
+    1.5rem;
 }
 
 .contact-banner-inner {
-  width: min(1200px, 100%);
-
+  width: min(1050px, 100%);
   margin: 0 auto;
 
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: clamp(2rem, 7vw, 7rem);
-
   align-items: center;
 }
 
@@ -720,7 +616,16 @@ h3 {
 }
 
 .contact-banner p {
-  max-width: 32rem;
+  max-width: 500px;
+}
+
+.contact-banner .button {
+  background: white;
+  color: var(--moss);
+}
+
+.contact-banner .button:hover {
+  background: var(--sand);
 }
 
 
@@ -730,21 +635,16 @@ h3 {
 
 .site-footer {
   min-height: 90px;
-
   padding:
     1.5rem
     clamp(1.25rem, 5vw, 5rem);
 
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
   background: var(--ink);
-
   color: var(--paper);
-
   font-size: 0.85rem;
 }
 
@@ -758,7 +658,7 @@ h3 {
 
 
 /* =====================================================
-   MOBILE / TABLET
+   MOBILE – BIS 850 PX
 ===================================================== */
 
 @media (max-width: 850px) {
@@ -767,25 +667,18 @@ h3 {
     min-height: 70px;
   }
 
-  /* Menübutton */
-
   .menu-button {
     display: flex;
-
     gap: 0.5rem;
-
     align-items: center;
   }
 
   .menu-button span,
   .menu-button span::before {
     display: block;
-
     width: 20px;
     height: 1px;
-
     background: var(--ink);
-
     content: "";
   }
 
@@ -793,16 +686,10 @@ h3 {
     transform: translateY(6px);
   }
 
-
-  /* Mobile Navigation */
-
   .main-nav {
     display: none;
-
     position: absolute;
-
     top: 100%;
-
     left: 0;
     right: 0;
 
@@ -812,13 +699,10 @@ h3 {
       1.5rem;
 
     flex-direction: column;
-
     align-items: flex-start;
-
     gap: 0.55rem;
 
     background: var(--paper);
-
     border-bottom: 1px solid var(--line);
   }
 
@@ -827,32 +711,30 @@ h3 {
   }
 
 
-  /* Mobile Hero */
+  /* STARTSEITE */
 
   .hero {
     min-height: calc(100vh - 70px);
   }
 
-  .hero-background,
-  .hero-visual {
+  .hero-background {
     background-position: center center;
   }
 
-  .hero-background::after,
-  .hero-visual::after {
+  .hero-overlay {
     background:
       linear-gradient(
         180deg,
-        rgba(15,25,22,0.25) 0%,
-        rgba(15,25,22,0.55) 50%,
-        rgba(15,25,22,0.90) 100%
+        rgba(15,25,22,0.30) 0%,
+        rgba(15,25,22,0.60) 55%,
+        rgba(15,25,22,0.88) 100%
       );
   }
 
   .hero-content {
     padding:
       5rem
-      1.25rem
+      1.5rem
       4rem;
   }
 
@@ -865,10 +747,11 @@ h3 {
   }
 
 
-  /* Allgemeine Bereiche */
+  /* ALLGEMEIN */
 
   .intro-grid,
   .two-column,
+  .contact-callout,
   .contact-banner-inner {
     grid-template-columns: 1fr;
   }
@@ -879,65 +762,74 @@ h3 {
   }
 
 
-  /* Über uns */
+  /* ÜBER UNS */
 
   .about-hero {
     padding:
       4.5rem
-      1.25rem
+      1.5rem
       4rem;
   }
 
-  .center-content h1 {
+  .about-hero h1 {
     font-size: clamp(3rem, 11vw, 5rem);
   }
 
+  .about-intro {
+    padding:
+      4rem
+      1.5rem;
+  }
+
   .center-text {
-    font-size: 1.05rem;
+    width: min(700px, 100%);
   }
 
   .team-photo-section {
-    padding:
-      4rem
-      1.25rem
-      5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .team-photo {
+    padding: 0 1rem;
   }
 
   .team-photo-placeholder {
-    min-height: 350px;
+    min-height: 420px;
   }
 
-  .project-reading-text {
-    font-size: 1.05rem;
+  .project-content {
+    width: 100%;
+  }
+
+  .project-content h2 {
+    margin-bottom: 2rem;
+  }
+
+  .contact-banner {
+    padding:
+      4rem
+      1.5rem;
   }
 
   .contact-banner-inner {
     gap: 2rem;
   }
 
-  .contact-banner {
-    padding:
-      4rem
-      1.25rem;
-  }
 
-
-  /* Footer */
+  /* FOOTER */
 
   .site-footer {
     min-height: 110px;
-
     align-items: flex-start;
-
     flex-direction: column;
-
     gap: 0.8rem;
   }
 }
 
 
 /* =====================================================
-   KLEINE HANDYS
+   MOBILE – BIS 500 PX
 ===================================================== */
 
 @media (max-width: 500px) {
@@ -946,33 +838,71 @@ h3 {
     font-size: 0.88rem;
   }
 
-  .hero-content h1 {
-    font-size: clamp(2.8rem, 12vw, 4.5rem);
-  }
-
   .hero-content {
     padding-top: 4rem;
   }
 
-  .about-hero {
-    padding-top: 4rem;
+  .hero-content h1 {
+    font-size: clamp(2.8rem, 12vw, 4.5rem);
   }
 
-  .center-content h1 {
+  .about-hero {
+    padding:
+      4rem
+      1.25rem
+      3.5rem;
+  }
+
+  .about-hero h1 {
     font-size: clamp(2.7rem, 12vw, 4rem);
   }
 
-  .team-photo-placeholder {
-    min-height: 280px;
+  .about-intro {
+    padding:
+      3.5rem
+      1.25rem;
   }
 
-  .contact-banner {
+  .center-text p {
+    font-size: 1rem;
+  }
+
+  .team-photo-section {
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
   }
 
-  .site-footer {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+  .section-title-center {
+    width: calc(100% - 2.5rem);
+    margin-bottom: 2rem;
   }
+
+  .team-photo {
+    padding: 0 0.75rem;
+  }
+
+  .team-photo-placeholder {
+    min-height: 300px;
+  }
+
+  .project-section {
+    padding:
+      3.5rem
+      1.25rem;
+  }
+
+  .project-reading-text p {
+    font-size: 1rem;
+  }
+
+  .contact-banner {
+    padding:
+      3.5rem
+      1.25rem;
+  }
+
+  .contact-banner h2 {
+    font-size: 2.2rem;
+  }
+
 }
