@@ -1,17 +1,19 @@
+```javascript
 document.querySelectorAll('[data-year]').forEach((element) => {
-  element.textContent = new Date().getFullYear();
+    element.textContent = new Date().getFullYear();
 });
 
 const menuButton = document.querySelector('.menu-button');
 const navigation = document.querySelector('.main-nav');
 
 if (menuButton && navigation) {
-  menuButton.addEventListener('click', () => {
-    const isOpen = navigation.classList.toggle('open');
-    menuButton.setAttribute('aria-expanded', isOpen);
-  });
+    menuButton.addEventListener('click', () => {
+        const isOpen = navigation.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', isOpen);
+    });
 }
-```javascript
+
+
 /* =====================================================
    FOTOGALERIE – LIGHTBOX
 ===================================================== */
@@ -28,11 +30,13 @@ const lightboxNext = document.querySelector(".lightbox-next");
 let currentImage = 0;
 
 
-/* Bild öffnen */
+/* =====================================================
+   BILD ÖFFNEN
+===================================================== */
 
 function openLightbox(index) {
 
-    if (!galleryItems.length) return;
+    if (!galleryItems.length || !lightbox) return;
 
     currentImage = index;
 
@@ -48,9 +52,13 @@ function openLightbox(index) {
 }
 
 
-/* Bild schließen */
+/* =====================================================
+   BILD SCHLIESSEN
+===================================================== */
 
 function closeLightbox() {
+
+    if (!lightbox) return;
 
     lightbox.classList.remove("open");
     lightbox.setAttribute("aria-hidden", "true");
@@ -59,7 +67,9 @@ function closeLightbox() {
 }
 
 
-/* Vorheriges Bild */
+/* =====================================================
+   VORHERIGES BILD
+===================================================== */
 
 function showPrevious() {
 
@@ -73,7 +83,9 @@ function showPrevious() {
 }
 
 
-/* Nächstes Bild */
+/* =====================================================
+   NÄCHSTES BILD
+===================================================== */
 
 function showNext() {
 
@@ -87,7 +99,9 @@ function showNext() {
 }
 
 
-/* Klick auf Bilder */
+/* =====================================================
+   KLICK AUF BILDER
+===================================================== */
 
 galleryItems.forEach((image, index) => {
 
@@ -98,31 +112,39 @@ galleryItems.forEach((image, index) => {
 });
 
 
-/* Buttons */
+/* =====================================================
+   BUTTONS
+===================================================== */
 
-lightboxClose.addEventListener("click", closeLightbox);
+if (lightbox && lightboxClose && lightboxPrev && lightboxNext) {
 
-lightboxPrev.addEventListener("click", showPrevious);
+    lightboxClose.addEventListener("click", closeLightbox);
 
-lightboxNext.addEventListener("click", showNext);
+    lightboxPrev.addEventListener("click", showPrevious);
 
-
-/* Klick auf dunklen Hintergrund */
-
-lightbox.addEventListener("click", (event) => {
-
-    if (event.target === lightbox) {
-        closeLightbox();
-    }
-
-});
+    lightboxNext.addEventListener("click", showNext);
 
 
-/* Tastatur */
+    /* Klick auf dunklen Hintergrund */
+
+    lightbox.addEventListener("click", (event) => {
+
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   TASTATUR-STEUERUNG
+===================================================== */
 
 document.addEventListener("keydown", (event) => {
 
-    if (!lightbox.classList.contains("open")) return;
+    if (!lightbox || !lightbox.classList.contains("open")) return;
 
     if (event.key === "Escape") {
         closeLightbox();
