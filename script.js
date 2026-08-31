@@ -1,16 +1,32 @@
-javascript
+/* =====================================================
+   JAHR
+===================================================== */
+
 document.querySelectorAll('[data-year]').forEach((element) => {
     element.textContent = new Date().getFullYear();
 });
+
+
+/* =====================================================
+   MOBILE NAVIGATION
+===================================================== */
 
 const menuButton = document.querySelector('.menu-button');
 const navigation = document.querySelector('.main-nav');
 
 if (menuButton && navigation) {
+
     menuButton.addEventListener('click', () => {
+
         const isOpen = navigation.classList.toggle('open');
-        menuButton.setAttribute('aria-expanded', isOpen);
+
+        menuButton.setAttribute(
+            'aria-expanded',
+            isOpen
+        );
+
     });
+
 }
 
 
@@ -18,14 +34,33 @@ if (menuButton && navigation) {
    FOTOGALERIE – LIGHTBOX
 ===================================================== */
 
-const galleryItems = document.querySelectorAll(".gallery-item img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightbox-image");
-const lightboxCaption = document.getElementById("lightbox-caption");
+const galleryItems = document.querySelectorAll(
+    ".gallery-item img"
+);
 
-const lightboxClose = document.querySelector(".lightbox-close");
-const lightboxPrev = document.querySelector(".lightbox-prev");
-const lightboxNext = document.querySelector(".lightbox-next");
+const lightbox = document.getElementById(
+    "lightbox"
+);
+
+const lightboxImage = document.getElementById(
+    "lightbox-image"
+);
+
+const lightboxCaption = document.getElementById(
+    "lightbox-caption"
+);
+
+const lightboxClose = document.querySelector(
+    ".lightbox-close"
+);
+
+const lightboxPrev = document.querySelector(
+    ".lightbox-prev"
+);
+
+const lightboxNext = document.querySelector(
+    ".lightbox-next"
+);
 
 let currentImage = 0;
 
@@ -36,17 +71,26 @@ let currentImage = 0;
 
 function openLightbox(index) {
 
-    if (!galleryItems.length || !lightbox) return;
+    if (!galleryItems.length || !lightbox) {
+        return;
+    }
 
     currentImage = index;
 
-    lightboxImage.src = galleryItems[currentImage].src;
-    lightboxImage.alt = galleryItems[currentImage].alt;
+    const image = galleryItems[currentImage];
 
-    lightboxCaption.textContent = galleryItems[currentImage].alt;
+    lightboxImage.src = image.src;
+
+    lightboxImage.alt = image.alt;
+
+    lightboxCaption.textContent = image.alt;
 
     lightbox.classList.add("open");
-    lightbox.setAttribute("aria-hidden", "false");
+
+    lightbox.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
     document.body.style.overflow = "hidden";
 }
@@ -58,12 +102,19 @@ function openLightbox(index) {
 
 function closeLightbox() {
 
-    if (!lightbox) return;
+    if (!lightbox) {
+        return;
+    }
 
     lightbox.classList.remove("open");
-    lightbox.setAttribute("aria-hidden", "true");
+
+    lightbox.setAttribute(
+        "aria-hidden",
+        "true"
+    );
 
     document.body.style.overflow = "";
+
 }
 
 
@@ -76,7 +127,10 @@ function showPrevious() {
     currentImage--;
 
     if (currentImage < 0) {
-        currentImage = galleryItems.length - 1;
+
+        currentImage =
+            galleryItems.length - 1;
+
     }
 
     openLightbox(currentImage);
@@ -91,8 +145,13 @@ function showNext() {
 
     currentImage++;
 
-    if (currentImage >= galleryItems.length) {
+    if (
+        currentImage >=
+        galleryItems.length
+    ) {
+
         currentImage = 0;
+
     }
 
     openLightbox(currentImage);
@@ -105,9 +164,12 @@ function showNext() {
 
 galleryItems.forEach((image, index) => {
 
-    image.addEventListener("click", () => {
-        openLightbox(index);
-    });
+    image.addEventListener(
+        "click",
+        () => {
+            openLightbox(index);
+        }
+    );
 
 });
 
@@ -116,46 +178,90 @@ galleryItems.forEach((image, index) => {
    BUTTONS
 ===================================================== */
 
-if (lightbox && lightboxClose && lightboxPrev && lightboxNext) {
+if (lightboxClose) {
 
-    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxClose.addEventListener(
+        "click",
+        closeLightbox
+    );
 
-    lightboxPrev.addEventListener("click", showPrevious);
+}
 
-    lightboxNext.addEventListener("click", showNext);
+if (lightboxPrev) {
 
+    lightboxPrev.addEventListener(
+        "click",
+        showPrevious
+    );
 
-    /* Klick auf dunklen Hintergrund */
+}
 
-    lightbox.addEventListener("click", (event) => {
+if (lightboxNext) {
 
-        if (event.target === lightbox) {
-            closeLightbox();
-        }
-
-    });
+    lightboxNext.addEventListener(
+        "click",
+        showNext
+    );
 
 }
 
 
 /* =====================================================
-   TASTATUR-STEUERUNG
+   HINTERGRUND KLICK
 ===================================================== */
 
-document.addEventListener("keydown", (event) => {
+if (lightbox) {
 
-    if (!lightbox || !lightbox.classList.contains("open")) return;
+    lightbox.addEventListener(
+        "click",
+        (event) => {
 
-    if (event.key === "Escape") {
-        closeLightbox();
+            if (
+                event.target === lightbox
+            ) {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   TASTATUR
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            !lightbox ||
+            !lightbox.classList.contains("open")
+        ) {
+            return;
+        }
+
+        if (event.key === "Escape") {
+
+            closeLightbox();
+
+        }
+
+        if (event.key === "ArrowLeft") {
+
+            showPrevious();
+
+        }
+
+        if (event.key === "ArrowRight") {
+
+            showNext();
+
+        }
+
     }
-
-    if (event.key === "ArrowLeft") {
-        showPrevious();
-    }
-
-    if (event.key === "ArrowRight") {
-        showNext();
-    }
-
-});
+);
