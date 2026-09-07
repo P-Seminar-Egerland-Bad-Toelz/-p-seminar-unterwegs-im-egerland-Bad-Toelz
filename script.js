@@ -43,6 +43,8 @@ const lightboxPrev = document.querySelector('.lightbox-prev');
 const lightboxNext = document.querySelector('.lightbox-next');
 
 let currentImage = 0;
+let previousFocus = null;
+let previousOverflow = "";
 
 
 /* =====================================================
@@ -55,6 +57,11 @@ function openLightbox(index) {
         return;
     }
 
+    const wasOpen = lightbox.classList.contains('open');
+    if (!wasOpen) {
+        previousFocus = document.activeElement;
+        previousOverflow = document.body.style.overflow;
+    }
     currentImage = index;
 
     const image = galleryImages[currentImage];
@@ -70,6 +77,7 @@ function openLightbox(index) {
     lightbox.setAttribute('aria-hidden', 'false');
 
     document.body.style.overflow = 'hidden';
+    if (!wasOpen) lightboxClose?.focus();
 }
 
 
@@ -86,7 +94,8 @@ function closeLightbox() {
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
 
-    document.body.style.overflow = '';
+    document.body.style.overflow = previousOverflow;
+    previousFocus?.focus({ preventScroll: true });
 }
 
 
@@ -136,9 +145,18 @@ function showNext() {
 
 galleryImages.forEach((image, index) => {
 
-    image.style.cursor = 'pointer';
+    const item = image.closest('.gallery-item');
+    item.tabIndex = 0;
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-label', 'Foto ' + (index + 1) + ' groß anzeigen');
+    item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openLightbox(index);
+        }
+    });
 
-    image.addEventListener('click', () => {
+    item.addEventListener('click', () => {
         openLightbox(index);
     });
 
@@ -189,6 +207,13 @@ document.addEventListener('keydown', (event) => {
         return;
     }
 
+    if (['Escape', 'ArrowLeft', 'ArrowRight'].includes(event.key)) event.preventDefault();
+    if (event.key === 'Tab') {
+        const buttons = [lightboxClose, lightboxPrev, lightboxNext].filter(Boolean);
+        const index = buttons.indexOf(document.activeElement);
+        event.preventDefault();
+        buttons[(index + (event.shiftKey ? -1 : 1) + buttons.length) % buttons.length]?.focus();
+    }
     if (event.key === 'Escape') {
         closeLightbox();
     }

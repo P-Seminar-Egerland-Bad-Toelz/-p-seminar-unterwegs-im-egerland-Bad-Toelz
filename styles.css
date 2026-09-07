@@ -954,7 +954,7 @@ h3 {
     }
 }
 
-```css
+
 /* =====================================================
    FOTOGALERIE
 ===================================================== */
@@ -2105,4 +2105,16 @@ h3 {
         right: 0.4rem;
     }
 
+}
+
+/* Galerie: Bedienung und Videos */
+.gallery-item::after { pointer-events: none; }
+.gallery-item.gallery-video { grid-column: span 2; grid-row: span 2; cursor: auto; }
+.gallery-video::after { content: none; }
+.gallery-video video { object-fit: contain; }
+.gallery-item[role="button"]:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.lightbox button { z-index: 1; }
+.lightbox button:focus-visible { outline: 3px solid var(--gold); }
+@media (max-width: 500px) {
+  .gallery-item.gallery-video { grid-column: 1 / -1; }
 }
