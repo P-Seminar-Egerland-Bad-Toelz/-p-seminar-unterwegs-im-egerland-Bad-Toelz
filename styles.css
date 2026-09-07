@@ -2118,3 +2118,16 @@ h3 {
 @media (max-width: 500px) {
   .gallery-item.gallery-video { grid-column: 1 / -1; }
 }
+
+/* Einheitliche Kontaktbereiche auf allen Seiten. */
+.contact-callout {
+  background: var(--moss);
+  color: var(--paper);
+}
+.contact-callout h2,
+.contact-callout .eyebrow,
+.contact-callout .text-link {
+  color: var(--paper);
+  border-color: var(--paper);
+}
+.contact-callout a:hover { color: var(--gold); }
