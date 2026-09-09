@@ -35,3 +35,15 @@
   .menu-button { min-height: 44px; }
   .site-footer { min-height: 0; padding: 1.5rem 1.25rem; }
 }
+
+/* Kompakter Bildeinstieg: vollständiges Foto mit Überschrift darauf. */
+@media (max-width: 850px) {
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr); background: var(--moss); }
+  .mobile-hero-photo { grid-area: 1 / 1; align-self: start; }
+  .hero-overlay { display: block; position: relative; inset: auto; grid-area: 1 / 1; align-self: stretch; background: linear-gradient(180deg, transparent 25%, rgba(15,25,22,0.15) 50%, rgba(15,25,22,0.88) 100%); }
+  .hero-content { display: contents; }
+  .hero-content h1 { grid-area: 1 / 1; align-self: end; z-index: 2; font-size: clamp(1.35rem, 6vw, 2.8rem); line-height: 1.08; padding: 0.75rem 1.25rem; margin: 0; max-width: 100%; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+  .hero-content .eyebrow { margin: 1.5rem 1.25rem 0.85rem; font-size: 0.62rem; }
+  .hero-content .lead { margin: 0 1.25rem; max-width: 650px; }
+  .hero-content .button { justify-self: start; margin: 1.25rem 1.25rem 1.75rem; }
+}
