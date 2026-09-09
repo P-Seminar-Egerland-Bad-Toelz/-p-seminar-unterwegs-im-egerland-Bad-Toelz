@@ -1,0 +1,14 @@
+/* Platz für die zusätzliche Unterseite, auch auf Tablets. */
+.site-header .brand { flex-shrink: 0; }
+@media (min-width: 1181px) and (max-width: 1400px) {
+ .site-header { padding-inline: 2rem; gap: 1.5rem; }
+ .main-nav { gap: 1rem; }
+}
+@media (max-width: 1180px) {
+ .menu-button { display: flex; gap: .5rem; align-items: center; min-height: 44px; }
+ .menu-button span, .menu-button span::before { display: block; width: 20px; height: 1px; background: var(--ink); content: ""; }
+ .menu-button span::before { transform: translateY(6px); }
+ .main-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 1rem 1.25rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 10px 25px rgba(0,0,0,.08); max-height: calc(100dvh - 78px); overflow-y: auto; }
+ .main-nav.open { display: flex; }
+ .main-nav a { display: flex; align-items: center; min-height: 44px; width: 100%; }
+}

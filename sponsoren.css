@@ -1,0 +1,55 @@
+.sponsors-page { background: var(--paper); }
+.sponsors-wrap { width: min(1200px, calc(100% - 80px)); margin-inline: auto; }
+.sponsors-hero { background: var(--sand); padding-block: clamp(4rem, 8vw, 8rem); }
+.sponsors-hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
+.sponsors-hero h1 { color: var(--moss); font-size: clamp(3.5rem, 7.5vw, 7rem); margin: 0; }
+.sponsors-hero h1 em { font-weight: inherit; }
+.sponsors-hero-copy > p:first-child { font-size: 1.4rem; line-height: 1.45; font-weight: 500; }
+.sponsors-hero-copy .text-link { margin-top: 1rem; }
+.sponsors-page .text-link { color: var(--moss); }
+.sponsors-section { padding-block: clamp(3.5rem, 7vw, 6rem); scroll-margin-top: 2rem; }
+.sponsors-heading { max-width: 740px; margin-bottom: 2.5rem; }
+.sponsors-heading h2 { color: var(--moss); font-size: clamp(2rem, 3.7vw, 3.4rem); margin-bottom: 1.25rem; }
+.sponsors-heading p:last-child { max-width: 620px; margin-bottom: 0; }
+.sponsors-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.sponsor-card { border: 1px solid var(--line); background: var(--paper); min-width: 0; }
+.sponsor-logo { display: flex; align-items: center; justify-content: center; background: #fff; height: 185px; padding: 2.25rem; border-bottom: 1px solid var(--line); transition: background .2s; }
+.sponsor-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.sponsor-logo:hover { background: #f9faf7; }
+.sponsor-card-copy { padding: 1.75rem; }
+.sponsor-card h3 { font-family: 'DM Sans', Arial, sans-serif; font-size: 1.15rem; line-height: 1.4; margin: 0 0 .8rem; }
+.sponsor-card p { margin: 0; font-size: .95rem; }
+.sponsors-knowledge { background: var(--sand); }
+.sponsor-feature { display: grid; grid-template-columns: 1fr 1.7fr; background: var(--paper); border: 1px solid var(--line); margin-bottom: 1.5rem; }
+.sponsor-feature-logo { background: #fff; display: grid; place-items: center; padding: 3rem; }
+.sponsor-feature-logo img { display: block; width: 100%; max-width: 270px; height: 180px; object-fit: contain; }
+.sponsor-feature > div { padding: 2.5rem; }
+.sponsor-feature h3 { font: 500 clamp(1.8rem, 2.7vw, 2.5rem)/1.15 Fraunces, Georgia, serif; color: var(--moss); }
+.sponsors-reports { margin-top: 2rem; }
+.sponsors-thanks { text-align: center; padding: 4rem 0; border-top: 1px solid var(--line); }
+.sponsors-thanks h2 { color: var(--moss); font-size: clamp(2rem, 3.5vw, 3rem); }
+.sponsors-thanks p:not(.eyebrow) { max-width: 710px; margin: 0 auto 1.5rem; }
+.sponsors-signature { color: var(--moss); font-weight: 600; }
+.sponsors-page a:focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
+@media (max-width: 1000px) {
+ .sponsors-hero-grid { gap: 2rem; }
+ .sponsors-hero h1 { font-size: clamp(3rem, 7vw, 5rem); }
+ .sponsor-logo { padding: 1.5rem; height: 155px; }
+ .sponsor-card-copy { padding: 1.25rem; }
+ .sponsor-feature > div { padding: 2rem; }
+}
+@media (max-width: 700px) {
+ .sponsors-wrap { width: calc(100% - 40px); }
+ .sponsors-hero { padding-block: 3rem; }
+ .sponsors-hero-grid, .sponsors-grid, .sponsor-feature { grid-template-columns: minmax(0, 1fr); }
+ .sponsors-hero h1 { font-size: clamp(2.75rem, 12vw, 5rem); }
+ .sponsors-hero-copy > p:first-child { font-size: 1.2rem; }
+ .sponsors-grid { gap: 1.25rem; }
+ .sponsor-logo { height: 165px; padding: 2rem; }
+ .sponsor-feature-logo { padding: 2rem; }
+ .sponsor-feature-logo img { height: 130px; }
+ .sponsor-feature > div { padding: 1.5rem; }
+ .sponsors-page .contact-banner { padding: 3rem 20px; }
+ .sponsors-page .contact-banner-inner { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+ .sponsors-page .contact-banner h2 { font-size: 2.2rem; }
+}
