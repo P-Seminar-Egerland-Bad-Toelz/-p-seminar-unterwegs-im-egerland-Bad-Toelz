@@ -15,6 +15,12 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="mobile.css?v=20260908-photo">
 <link rel="stylesheet" href="navigation.css?v=20260909">
+<style>
+.home-story-photo { margin: 0; min-width: 0; display: flex; justify-content: center; align-items: center; }
+.home-story-photo img { display: block; width: 100%; height: auto; }
+.home-story-photo-portrait img { width: auto; max-width: 100%; max-height: 660px; }
+@media (max-width: 850px) { .home-story-photo-portrait img { width: 100%; max-width: 350px; max-height: none; } }
+</style>
 </head>
 
 
@@ -297,13 +303,7 @@
 
 
 
-        <div class="image-placeholder">
-
-          <span>
-            Bild aus dem Egerland
-          </span>
-
-        </div>
+        <figure class="home-story-photo home-story-photo-portrait"><img src="startseite-europaflagge-person.jpeg" width="725" height="1365" alt="Teilnehmer mit Europaflagge beim Marsch" loading="lazy" decoding="async"></figure>
 
       </div>
 
@@ -363,13 +363,7 @@
       <div class="two-column">
 
 
-        <div class="image-placeholder tall">
-
-          <span>
-            Fotos aus der Fotogalerie
-          </span>
-
-        </div>
+        <figure class="home-story-photo"><img src="startseite-europaflaggen-bruenn.jpeg" width="1600" height="1066" alt="Europaflaggen und Teilnehmende beim Marsch in Brünn" loading="lazy" decoding="async"></figure>
 
 
 
