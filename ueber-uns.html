@@ -13,6 +13,12 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="mobile.css?v=20260908">
 <link rel="stylesheet" href="navigation.css?v=20260909">
+<style>
+.about-team-photo img { width: 100%; height: auto; object-fit: contain; }
+.about-team-photo:hover img { transform: none; filter: brightness(.95); }
+.about-team-photo::after { opacity: 1; transform: none; }
+.team-photo-hint { margin: .8rem 0 0; text-align: center; color: var(--moss); font-size: .85rem; }
+</style>
 </head>
 
 <body>
@@ -119,17 +125,7 @@
 
       <div class="team-photo">
 
-        <!--
-          HIER DAS GROSSE TEAMFOTO EINSETZEN.
-
-          Beispiel:
-          <img src="teamfoto.jpg"
-               alt="Das P-Seminar Erlebnis Egerland">
-        -->
-
-        <div class="team-photo-placeholder">
-          <span>Teamfoto des P-Seminars</span>
-        </div>
+        <div class="gallery-item about-team-photo" aria-describedby="team-photo-hint"><img src="ueber-uns-teamfoto.jpeg" width="1600" height="700" alt="Das P-Seminar Erlebnis Egerland gemeinsam unterwegs" loading="lazy" decoding="async"></div><p id="team-photo-hint" class="team-photo-hint">Foto anklicken und groß ansehen <span aria-hidden="true">↗</span></p>
 
       </div>
 
@@ -235,7 +231,8 @@
   </footer>
 
 
-  <script src="script.js"></script>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Teamfoto in Großansicht" aria-hidden="true"><button type="button" class="lightbox-close" aria-label="Bild schließen">×</button><div class="lightbox-content"><img id="lightbox-image" src="ueber-uns-teamfoto.jpeg" alt="Das P-Seminar Erlebnis Egerland gemeinsam unterwegs"><p id="lightbox-caption"></p></div></div>
+<script src="script.js?v=20260907"></script>
 
 </body>
 </html>
