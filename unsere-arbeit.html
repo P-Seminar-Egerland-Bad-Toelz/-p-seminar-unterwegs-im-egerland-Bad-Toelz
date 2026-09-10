@@ -13,6 +13,17 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="mobile.css?v=20260908">
 <link rel="stylesheet" href="navigation.css?v=20260909">
+<style>
+.flyer-wrapper { width: min(1000px, 100%); }
+.work-flyer-link { display: block; box-shadow: 12px 14px 0 var(--sand); }
+.work-flyer-image { display: block; width: 100%; height: auto; }
+.work-flyer-link:focus-visible { outline: 3px solid var(--moss); outline-offset: 5px; }
+.work-church-photo { max-width: 850px; margin: 0 auto; }
+.work-church-photo img { display: block; width: 100%; height: auto; }
+.work-image-caption { color: var(--moss); text-align: center; font-size: .9rem; line-height: 1.6; margin: 1.5rem 0 0; }
+.work-image-caption a { text-decoration: underline; text-underline-offset: 4px; }
+@media(max-width:850px) { .work-flyer-link { box-shadow: 5px 6px 0 var(--sand); } }
+</style>
 </head>
 
 <body>
@@ -102,27 +113,9 @@
 
       <div class="flyer-wrapper">
 
-        <!--
-          HIER SPÄTER DEN FLYER EINSETZEN.
+        
 
-          Beispiel:
-
-          <img
-            src="flyer.jpg"
-            alt="Flyer zur Filmvorstellung am 08. November 2026"
-            class="flyer-image"
-          >
-        -->
-
-        <div class="flyer-placeholder">
-
-          <span>Flyer zur Filmvorstellung</span>
-
-          <small>
-            08. November 2026
-          </small>
-
-        </div>
+        <a class="work-flyer-link" href="filmvorstellung-flyer.png" target="_blank" rel="noopener" aria-label="Flyer zur Filmvorstellung in Originalgröße öffnen"><img class="work-flyer-image" src="filmvorstellung-flyer.png" width="1024" height="1536" alt="Filmvorstellung Unterwegs im Egerland am Sonntag, 8. November 2026, um 17 Uhr im Adalbert-Stifter-Saal, Sudetendeutsches Haus, Hochstraße 8, 81669 München. Film, Podiumsdiskussion und weitere Aktivitäten." decoding="async"></a><p class="work-image-caption"><a href="filmvorstellung-flyer.png" target="_blank" rel="noopener">Flyer in Originalgröße öffnen ↗</a></p>
 
       </div>
 
@@ -225,24 +218,9 @@
 
       <div class="work-large-photo">
 
-        <!--
-          HIER SPÄTER DAS FOTO EINSETZEN.
+        
 
-          Beispiel:
-
-          <img
-            src="seminar-kirche.jpg"
-            alt="Das P-Seminar vor einer Kirche im Egerland"
-          >
-        -->
-
-        <div class="work-photo-placeholder">
-
-          <span>
-            Foto des P-Seminars vor einer Kirche im Egerland
-          </span>
-
-        </div>
+        <figure class="work-church-photo"><img src="p-seminar-maria-loreto.jpeg" width="1200" height="1600" alt="Foto des P-Seminars vor der Kirche Maria Loreto im Egerland" loading="lazy" decoding="async"><figcaption class="work-image-caption">Foto des P-Seminars vor der Kirche Maria Loreto im Egerland.</figcaption></figure>
 
       </div>
 
