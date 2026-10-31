@@ -72,3 +72,9 @@
 }
 
 .team-contact h2 { color: var(--paper); }
+
+/* Links zu den persönlichen Profilen. */
+.team-person-link { color: var(--moss); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.team-person-link:hover { text-decoration-thickness: 2px; }
+.team-person-link:focus-visible { outline: 2px solid var(--moss); outline-offset: 4px; }
+.team-profile-hint { max-width: 680px; padding: 20px 24px; margin: -24px 0 40px; background: var(--sand); border-left: 3px solid var(--moss); }
