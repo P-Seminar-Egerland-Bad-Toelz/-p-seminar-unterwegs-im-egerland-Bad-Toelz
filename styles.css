@@ -2131,3 +2131,15 @@ h3 {
   border-color: var(--paper);
 }
 .contact-callout a:hover { color: var(--gold); }
+
+/* Filmreihe: Chronologie innerhalb der bestehenden Projektgestaltung. */
+.film-series { margin: 2.5rem 0; }
+.film-series h3 { color: var(--moss); font-size: 1.5rem; }
+.film-series-list { list-style: none; padding: 0; margin: 1.5rem 0 0; border-left: 2px solid var(--gold); }
+.film-series-list li { padding: .4rem 0 1.5rem 1.5rem; }
+.film-series-list h4 { font-size: 1.1rem; line-height: 1.5; margin: .4rem 0; }
+.film-series-list p { margin: .5rem 0 0; }
+.contact-detail h3 { font-size: 1rem; color: var(--moss); margin: 0 0 .5rem; }
+.contact-person + .contact-person { margin-top: 1.75rem; }
+.contact-detail .contact-person p { margin: 0 0 .5rem; }
+.media-partner-logo { display: block; width: 100%; height: 100px; object-fit: contain; background: #fff; margin-bottom: 1.5rem; }
