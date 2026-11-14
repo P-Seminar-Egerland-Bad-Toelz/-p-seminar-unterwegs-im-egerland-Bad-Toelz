@@ -2143,3 +2143,6 @@ h3 {
 .contact-person + .contact-person { margin-top: 1.75rem; }
 .contact-detail .contact-person p { margin: 0 0 .5rem; }
 .media-partner-logo { display: block; width: 100%; height: 100px; object-fit: contain; background: #fff; margin-bottom: 1.5rem; }
+
+/* Gemeinsames Projektbild in der Navigation. */
+.brand-mark.brand-image { width: 48px; height: 48px; flex: 0 0 48px; display: block; object-fit: cover; border-radius: 50%; background: var(--paper); box-shadow: 0 0 0 1px var(--line); }
