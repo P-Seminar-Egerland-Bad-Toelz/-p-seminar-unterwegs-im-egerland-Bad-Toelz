@@ -47,13 +47,22 @@
         .share-options p { margin: 0; font-size: .85rem; }
         .share-options input { width: 100%; min-width: 0; font: inherit; font-size: .8rem; padding: .5rem; }
         body:has(.lightbox.open) .site-tools { display: none; }
+        @media (max-width: 600px) {
+            .site-tools { right: max(.65rem, env(safe-area-inset-right)); bottom: calc(.65rem + env(safe-area-inset-bottom)); gap: .35rem; }
+            .site-tools > button { width: 44px; height: 44px; min-height: 44px; padding: 0; font-size: 0; border-radius: 50%; border-color: rgba(53,91,78,.16); background: rgba(248,245,237,.68); color: var(--moss); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+            .site-tools > .to-top { background: rgba(248,245,237,.68); color: var(--moss); }
+            .site-tools > button:hover, .site-tools > button:focus-visible { background: rgba(248,245,237,.95); color: var(--moss); }
+            .site-tools > button::before { font-size: 20px; line-height: 1; }
+            .site-tools > .to-top::before { content: '↑'; }
+            .site-tools > .share-toggle::before { content: '↗'; }
+        }
         @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
     `;
     document.head.append(style);
     const tools = document.createElement('div');
     tools.className = 'site-tools';
     tools.innerHTML = `<button type="button" class="to-top" aria-label="Zurück nach oben" hidden>Nach oben ↑</button>
-        <button type="button" class="share-toggle" aria-expanded="false" aria-controls="share-options">Teilen ↗</button>
+        <button type="button" class="share-toggle" aria-label="Seite teilen" aria-expanded="false" aria-controls="share-options">Teilen ↗</button>
         <div class="share-options" id="share-options" hidden>
             <p><strong>Diese Seite teilen</strong></p>
             <a class="share-whatsapp" target="_blank" rel="noopener noreferrer">Über WhatsApp teilen ↗</a>
