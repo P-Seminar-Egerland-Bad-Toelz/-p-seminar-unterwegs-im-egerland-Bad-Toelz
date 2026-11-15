@@ -40,6 +40,7 @@
         .site-tools button, .site-tools a { font: inherit; font-size: .85rem; line-height: 1.4; min-height: 44px; padding: .7rem 1rem; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; background: var(--paper); color: var(--moss); text-decoration: none; }
         .site-tools button:hover, .site-tools a:hover { background: var(--sand); }
         .site-tools button:focus-visible, .site-tools a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+        .share-toggle svg { display: none; }
         .site-tools .to-top { background: var(--moss); color: white; }
         .site-tools .to-top:hover { background: #284a3e; }
         .site-tools [hidden] { display: none !important; }
@@ -54,7 +55,8 @@
             .site-tools > button:hover, .site-tools > button:focus-visible { background: rgba(248,245,237,.95); color: var(--moss); }
             .site-tools > button::before { font-size: 20px; line-height: 1; }
             .site-tools > .to-top::before { content: '↑'; }
-            .site-tools > .share-toggle::before { content: '↗'; }
+            .site-tools > .share-toggle::before { content: none; }
+            .site-tools > .share-toggle svg { display: block; width: 20px; height: 20px; margin: auto; }
         }
         @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
     `;
@@ -62,7 +64,7 @@
     const tools = document.createElement('div');
     tools.className = 'site-tools';
     tools.innerHTML = `<button type="button" class="to-top" aria-label="Zurück nach oben" hidden>Nach oben ↑</button>
-        <button type="button" class="share-toggle" aria-label="Seite teilen" aria-expanded="false" aria-controls="share-options">Teilen ↗</button>
+        <button type="button" class="share-toggle" aria-label="Seite teilen" aria-expanded="false" aria-controls="share-options">Teilen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M8.2 10.8 15.8 6.2M8.2 13.2l7.6 4.6"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="5" r="2.5"/><circle cx="18" cy="19" r="2.5"/></svg></button>
         <div class="share-options" id="share-options" hidden>
             <p><strong>Diese Seite teilen</strong></p>
             <a class="share-whatsapp" target="_blank" rel="noopener noreferrer">Über WhatsApp teilen ↗</a>
