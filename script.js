@@ -31,6 +31,88 @@
     footer.before(nav);
 })();
 
+/* Teilen und zurück nach oben auf allen Seiten. */
+(() => {
+    if (!document.querySelector('.site-footer') || document.querySelector('.site-tools')) return;
+    const style = document.createElement('style');
+    style.textContent = `
+        .site-tools { position: fixed; right: max(1rem, env(safe-area-inset-right)); bottom: calc(1rem + env(safe-area-inset-bottom)); z-index: 90; display: flex; gap: .5rem; align-items: flex-end; }
+        .site-tools button, .site-tools a { font: inherit; font-size: .85rem; line-height: 1.4; min-height: 44px; padding: .7rem 1rem; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; background: var(--paper); color: var(--moss); text-decoration: none; }
+        .site-tools button:hover, .site-tools a:hover { background: var(--sand); }
+        .site-tools button:focus-visible, .site-tools a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+        .site-tools .to-top { background: var(--moss); color: white; }
+        .site-tools .to-top:hover { background: #284a3e; }
+        .site-tools [hidden] { display: none !important; }
+        .share-options { position: absolute; right: 0; bottom: calc(100% + .75rem); width: min(300px, calc(100vw - 2rem)); padding: 1rem; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 8px 30px #1d2c2826; display: grid; gap: .65rem; }
+        .share-options p { margin: 0; font-size: .85rem; }
+        .share-options input { width: 100%; min-width: 0; font: inherit; font-size: .8rem; padding: .5rem; }
+        body:has(.lightbox.open) .site-tools { display: none; }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
+    `;
+    document.head.append(style);
+    const tools = document.createElement('div');
+    tools.className = 'site-tools';
+    tools.innerHTML = `<button type="button" class="to-top" aria-label="Zurück nach oben" hidden>Nach oben ↑</button>
+        <button type="button" class="share-toggle" aria-expanded="false" aria-controls="share-options">Teilen ↗</button>
+        <div class="share-options" id="share-options" hidden>
+            <p><strong>Diese Seite teilen</strong></p>
+            <a class="share-whatsapp" target="_blank" rel="noopener noreferrer">Über WhatsApp teilen ↗</a>
+            <button type="button" class="share-copy">Link kopieren</button>
+            <p role="status" aria-live="polite"></p>
+            <input type="text" aria-label="Link zum manuellen Kopieren" readonly hidden>
+        </div>`;
+    document.body.append(tools);
+    const top = tools.querySelector('.to-top');
+    const toggle = tools.querySelector('.share-toggle');
+    const panel = tools.querySelector('.share-options');
+    const copy = tools.querySelector('.share-copy');
+    const status = tools.querySelector('[role="status"]');
+    const input = tools.querySelector('input');
+    const url = new URL(document.querySelector('link[rel="canonical"]')?.href || window.location.href);
+    url.search = '';
+    url.hash = '';
+    tools.querySelector('.share-whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(document.title + '\n' + url.href);
+    const updateTop = () => { top.hidden = window.scrollY < 600; };
+    window.addEventListener('scroll', updateTop, { passive: true });
+    updateTop();
+    top.addEventListener('click', (event) => {
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        if (event.detail === 0) document.querySelector('.site-header .brand')?.focus({ preventScroll: true });
+    });
+    const close = () => {
+        panel.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+    };
+    toggle.addEventListener('click', () => {
+        panel.hidden = !panel.hidden;
+        toggle.setAttribute('aria-expanded', String(!panel.hidden));
+        if (!panel.hidden) tools.querySelector('.share-whatsapp').focus();
+    });
+    document.addEventListener('click', (event) => {
+        if (!tools.contains(event.target)) close();
+    });
+    tools.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !panel.hidden) {
+            close();
+            toggle.focus();
+            event.stopPropagation();
+        }
+    });
+    copy.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(url.href);
+            status.textContent = 'Link kopiert!';
+            input.hidden = true;
+        } catch {
+            status.textContent = 'Bitte den markierten Link kopieren.';
+            input.value = url.href;
+            input.hidden = false;
+            input.focus();
+            input.select();
+        }
+    });
+})();
+
 /* =====================================================
    ALLGEMEIN
 ===================================================== */
