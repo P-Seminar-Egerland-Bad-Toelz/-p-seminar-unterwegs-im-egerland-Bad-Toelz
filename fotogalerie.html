@@ -22,6 +22,12 @@
   <meta property="og:image" content="https://p-seminar-egerland-bad-toelz.github.io/-p-seminar-unterwegs-im-egerland-Bad-Toelz/titelbild.jpg.jpeg">
   <meta property="og:image:alt" content="Gruppenfoto aus dem Egerland">
   <meta name="twitter:card" content="summary_large_image">
+  <style>
+    .gallery-clips { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 1.5rem; max-width: 1500px; margin: 2.5rem auto 0; }
+    .gallery-clip { margin: 0; min-width: 0; }
+    .gallery-clip video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #18221d; border-radius: .5rem; }
+    .gallery-clip figcaption { margin-top: .75rem; color: var(--moss); font-size: .9rem; line-height: 1.6; }
+  </style>
 </head>
 
 <body>
@@ -94,10 +100,18 @@
          GALERIE
     ====================================================== -->
 
+    <section class="gallery-section" aria-labelledby="bad-kissingen-title">
+        <div class="gallery-heading"><p class="eyebrow">Begegnungen und Hintergründe</p><h2 id="bad-kissingen-title">Einblicke aus Bad Kissingen.</h2></div>
+        <div class="photo-gallery">
+            <figure class="gallery-item"><img src="galerie/bad-kissingen-seminarrunde.jpg" alt="Projektgruppe beim gemeinsamen Seminar in Bad Kissingen" width="1200" height="1599" loading="lazy" decoding="async" style="object-fit: contain; background: #e9e4d6;"></figure>
+            <figure class="gallery-item gallery-video"><video controls playsinline preload="none" poster="galerie/bad-kissingen-vortrag-vorschau.jpg" aria-label="Vortrag beim Seminar in Bad Kissingen"><source src="galerie/bad-kissingen-vortrag.mp4" type="video/mp4">Ihr Browser unterstützt diese Videowiedergabe nicht. <a href="galerie/bad-kissingen-vortrag.mp4">Video öffnen</a>.</video></figure>
+        </div>
+    </section>
+
     <section class="gallery-section" aria-labelledby="vorstellungsabend-title">
         <div class="gallery-heading">
             <p class="eyebrow">Gemeinsam im Gespräch</p>
-            <h2 id="vorstellungsabend-title">Unser Vorstellungsabend.</h2>
+            <h2 id="vorstellungsabend-title">Vorstellungsabend und Auszeichnungen.</h2>
         </div>
         <div class="photo-gallery">
             <figure class="gallery-item">
@@ -147,6 +161,17 @@
             <figure class="gallery-item">
                 <img src="galerie/vorstellungsabend-scheckuebergabe.jpg" alt="Gemeinsame Scheckübergabe an das Projektseminar auf der Bühne" width="1800" height="1200" loading="lazy" decoding="async">
             </figure>
+
+            <figure class="gallery-item"><img src="galerie/auszeichnung-gruppenbild.jpg" alt="Mitglieder des Projektseminars mit Urkunden und Spendenscheck" width="1800" height="1350" loading="lazy" decoding="async"></figure>
+            <figure class="gallery-item"><img src="galerie/vorstellungsabend-blumen-und-begegnungen.jpg" alt="Teilnehmer und Gäste mit einem Blumenstrauß beim Vorstellungsabend" width="1350" height="1800" loading="lazy" decoding="async"></figure>
+            <figure class="gallery-item"><img src="galerie/auszeichnung-urkunde-und-medaille.jpg" alt="Urkunde zum Kulturpreis 2026 und Auszeichnung des Projektseminars" width="1800" height="1733" loading="lazy" decoding="async"></figure>
+            <figure class="gallery-item"><img src="galerie/vorstellungsabend-am-rednerpult.jpg" alt="Ein Teilnehmer des Projektseminars spricht am Rednerpult" width="1150" height="1800" loading="lazy" decoding="async"></figure>
+            <figure class="gallery-item"><img src="galerie/vorstellungsabend-beitrag-mit-mikrofon.jpg" alt="Ein Teilnehmer berichtet mit dem Mikrofon auf der Bühne" width="1196" height="1800" loading="lazy" decoding="async"></figure>
+        </div>
+        <div class="gallery-clips" aria-label="Videoclips vom Vorstellungsabend">
+            <figure class="gallery-clip"><video controls playsinline preload="none" poster="galerie/vorstellungsabend-ansprachen-vorschau.jpg" aria-label="Ansprachen beim Vorstellungsabend"><source src="galerie/vorstellungsabend-ansprachen.mp4" type="video/mp4">Ihr Browser unterstützt diese Videowiedergabe nicht. <a href="galerie/vorstellungsabend-ansprachen.mp4">Video öffnen</a>.</video><figcaption>Ansprachen beim Vorstellungsabend · 2:35 Min.</figcaption></figure>
+            <figure class="gallery-clip"><video controls playsinline preload="none" poster="galerie/vorstellungsabend-ehrung-vorschau.jpg" aria-label="Ehrung und Scheckübergabe beim Vorstellungsabend"><source src="galerie/vorstellungsabend-ehrung.mp4" type="video/mp4">Ihr Browser unterstützt diese Videowiedergabe nicht. <a href="galerie/vorstellungsabend-ehrung.mp4">Video öffnen</a>.</video><figcaption>Ehrung und Scheckübergabe beim Vorstellungsabend · 3:49 Min.</figcaption></figure>
+            <figure class="gallery-clip"><video controls playsinline preload="none" poster="galerie/vorstellungsabend-scheck-und-gruppenbild-vorschau.jpg" aria-label="Scheckübergabe und gemeinsames Gruppenbild"><source src="galerie/vorstellungsabend-scheck-und-gruppenbild.mp4" type="video/mp4">Ihr Browser unterstützt diese Videowiedergabe nicht. <a href="galerie/vorstellungsabend-scheck-und-gruppenbild.mp4">Video öffnen</a>.</video><figcaption>Scheckübergabe und gemeinsames Gruppenbild · 1:30 Min.</figcaption></figure>
         </div>
     </section>
 
@@ -605,7 +630,7 @@
 </div>
 
 
-<script src="script.js?v=20261115-galerie"></script>
+<script src="script.js?v=20261115-whatsapp"></script>
 
 </body>
 </html>
