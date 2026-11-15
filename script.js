@@ -234,6 +234,37 @@ if (lightbox) {
    TASTATUR
 ===================================================== */
 
+// In der Großansicht horizontal wischen; Scrollen und Pinch-Zoom ausnehmen.
+if (lightboxImage) {
+    let swipeStart = null;
+    lightboxImage.addEventListener('touchstart', (event) => {
+        swipeStart = null;
+        if (!lightbox?.classList.contains('open') || event.touches.length !== 1 ||
+            (window.visualViewport?.scale ?? 1) > 1) return;
+        const touch = event.touches[0];
+        swipeStart = { x: touch.clientX, y: touch.clientY, id: touch.identifier };
+    }, { passive: true });
+    lightboxImage.addEventListener('touchmove', (event) => {
+        if (event.touches.length !== 1) swipeStart = null;
+    }, { passive: true });
+    lightboxImage.addEventListener('touchcancel', () => {
+        swipeStart = null;
+    }, { passive: true });
+    lightboxImage.addEventListener('touchend', (event) => {
+        const start = swipeStart;
+        swipeStart = null;
+        if (!start || event.touches.length || !lightbox?.classList.contains('open') ||
+            (window.visualViewport?.scale ?? 1) > 1) return;
+        const touch = Array.from(event.changedTouches).find(t => t.identifier === start.id);
+        if (!touch) return;
+        const dx = touch.clientX - start.x;
+        const dy = touch.clientY - start.y;
+        if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+        if (dx < 0) showNext();
+        else showPrevious();
+    }, { passive: true });
+}
+
 document.addEventListener('keydown', (event) => {
 
     if (!lightbox || !lightbox.classList.contains('open')) {
