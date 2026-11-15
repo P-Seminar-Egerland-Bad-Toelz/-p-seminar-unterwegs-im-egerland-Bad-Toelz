@@ -1,3 +1,36 @@
+/* Seitennavigation am Ende der Hauptseiten, in der Reihenfolge des Menüs. */
+(() => {
+    const links = Array.from(document.querySelectorAll('.main-nav a'));
+    const currentPath = window.location.pathname.replace(/\/$/, '/index.html');
+    const currentIndex = links.findIndex(link => new URL(link.href).pathname === currentPath);
+    const footer = document.querySelector('.site-footer');
+    if (currentIndex < 0 || !footer || document.querySelector('.page-next')) return;
+
+    const isLastPage = currentIndex === links.length - 1;
+    const nextLink = links[(currentIndex + 1) % links.length];
+    const nav = document.createElement('nav');
+    nav.className = 'page-next';
+    nav.setAttribute('aria-label', 'Weiter durch die Website');
+    nav.style.cssText = 'padding: clamp(2rem, 5vw, 4rem) max(1.25rem, 5vw); border-top: 1px solid var(--line); background: var(--paper); text-align: right;';
+
+    const label = document.createElement('p');
+    label.className = 'eyebrow';
+    label.textContent = isLastPage ? 'Zurück zum Anfang' : 'Weiter entdecken';
+    label.style.margin = '0 0 1rem';
+    const button = document.createElement('a');
+    button.className = 'button';
+    button.href = nextLink.getAttribute('href');
+    button.rel = 'next';
+    button.style.cssText = 'max-width: 100%; box-sizing: border-box; white-space: normal; text-align: left;';
+    button.append(document.createTextNode(isLastPage ? 'Zurück zur Startseite ' : 'Weiter zu: ' + nextLink.textContent.trim() + ' '));
+    const arrow = document.createElement('span');
+    arrow.textContent = '→';
+    arrow.setAttribute('aria-hidden', 'true');
+    button.append(arrow);
+    nav.append(label, button);
+    footer.before(nav);
+})();
+
 /* =====================================================
    ALLGEMEIN
 ===================================================== */
