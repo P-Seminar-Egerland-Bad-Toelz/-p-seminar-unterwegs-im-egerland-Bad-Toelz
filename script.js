@@ -28,7 +28,8 @@
     arrow.setAttribute('aria-hidden', 'true');
     button.append(arrow);
     nav.append(label, button);
-    footer.before(nav);
+    const contactBanner = document.querySelector('.contact-banner');
+    (contactBanner || footer).before(nav);
 })();
 
 /* Teilen und zurück nach oben auf allen Seiten. */
