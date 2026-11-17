@@ -28,6 +28,7 @@
     .gallery-clip video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #18221d; border-radius: .5rem; }
     .gallery-clip figcaption { margin-top: .75rem; color: var(--moss); font-size: .9rem; line-height: 1.6; }
   </style>
+<link rel="stylesheet" href="projektwechsel.css?v=20261117">
 </head>
 
 <body>
@@ -36,10 +37,10 @@
 
 <header class="site-header">
 
-    <a class="brand" href="index.html" aria-label="Erlebnis Egerland – Startseite">
+    <div class="project-brand"><a class="brand" href="index.html" aria-label="Erlebnis Egerland – Startseite">
         <img class="brand-mark brand-image" src="projekt-logo.png" alt="" width="48" height="48">
         <span>Erlebnis Egerland</span>
-    </a>
+    </a><details class="project-switch"><summary>Projekt wechseln <span aria-hidden="true">⌄</span></summary><nav aria-label="Projekt auswählen"><a href="index.html" aria-current="true">Unterwegs im Egerland</a><a href="isergebirge/index.html">Isergebirge im Wandel der Zeit</a></nav></details></div>
 
     <button class="menu-button"
             aria-expanded="false"
