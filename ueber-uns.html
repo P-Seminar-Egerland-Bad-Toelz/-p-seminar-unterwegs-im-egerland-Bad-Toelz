@@ -1,7 +1,9 @@
+
 <!doctype html>
 <html lang="de">
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,21 +13,69 @@
 
   <link rel="stylesheet" href="styles.css?v=20261114-logo">
   <link rel="stylesheet" href="mobile.css?v=20260908">
-<link rel="stylesheet" href="navigation.css?v=20261104-impressum">
-<style>
-.film-video { margin: 1.25rem 0; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 12px; background: var(--moss); box-shadow: 0 12px 30px rgba(0, 0, 0, .12); }
-.film-video iframe { display: block; width: 100%; height: 100%; border: 0; }
-.team-photo { max-width: 1100px; }
-#lightbox { padding: 1rem; }
-#lightbox .lightbox-content { max-width: 96vw; }
-#lightbox #lightbox-image { max-width: 96vw; }
-.about-team-photo img { width: 100%; height: auto; object-fit: contain; }
-.about-team-photo:hover img { transform: none; filter: brightness(.95); }
-.about-team-photo::after { opacity: 1; transform: none; }
-.team-photo-hint { margin: .8rem 0 0; text-align: center; color: var(--moss); font-size: .85rem; }
-</style>
+  <link rel="stylesheet" href="navigation.css?v=20261104-impressum">
+
+  <style>
+
+    .film-video {
+      margin: 1.25rem 0;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--moss);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .12);
+    }
+
+    .film-video iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .team-photo {
+      max-width: 1100px;
+    }
+
+    #lightbox {
+      padding: 1rem;
+    }
+
+    #lightbox .lightbox-content {
+      max-width: 96vw;
+    }
+
+    #lightbox #lightbox-image {
+      max-width: 96vw;
+    }
+
+    .about-team-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .about-team-photo:hover img {
+      transform: none;
+      filter: brightness(.95);
+    }
+
+    .about-team-photo::after {
+      opacity: 1;
+      transform: none;
+    }
+
+    .team-photo-hint {
+      margin: .8rem 0 0;
+      text-align: center;
+      color: var(--moss);
+      font-size: .85rem;
+    }
+
+  </style>
 
   <link rel="canonical" href="https://p-seminar-egerland-bad-toelz.github.io/-p-seminar-unterwegs-im-egerland-Bad-Toelz/ueber-uns.html">
+
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Erlebnis Egerland">
@@ -35,48 +85,104 @@
   <meta property="og:image" content="https://p-seminar-egerland-bad-toelz.github.io/-p-seminar-unterwegs-im-egerland-Bad-Toelz/titelbild.jpg.jpeg">
   <meta property="og:image:alt" content="Gruppenfoto aus dem Egerland">
   <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="projektwechsel.css?v=20261117">
+
+  <link rel="stylesheet" href="projektwechsel.css?v=20261117">
+
 </head>
 
 <body>
 
-  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <a class="skip-link" href="#inhalt">
+    Zum Inhalt springen
+  </a>
 
-  <!-- NAVIGATION -->
+  <!-- =====================================================
+       NAVIGATION
+  ===================================================== -->
+
   <header class="site-header">
 
-    <div class="project-brand"><a class="brand" href="index.html" aria-label="Erlebnis Egerland – Startseite">
-      <img class="brand-mark brand-image" src="projekt-logo.png" alt="" width="48" height="48">
-      <span>Erlebnis Egerland</span>
-    </a><details class="project-switch"><summary>Projekt wechseln <span aria-hidden="true">⌄</span></summary><nav aria-label="Projekt auswählen"><a href="index.html" aria-current="true">Unterwegs im Egerland</a><a href="isergebirge/index.html">Isergebirge im Wandel der Zeit</a></nav></details></div>
+    <div class="project-brand">
 
-    <button class="menu-button"
-            aria-expanded="false"
-            aria-controls="main-nav">
+      <a class="brand" href="index.html" aria-label="Erlebnis Egerland – Startseite">
+
+        <img class="brand-mark brand-image" src="projekt-logo.png" alt="" width="48" height="48">
+
+        <span>Erlebnis Egerland</span>
+
+      </a>
+
+      <details class="project-switch">
+
+        <summary>
+          Projekt wechseln <span aria-hidden="true">⌄</span>
+        </summary>
+
+        <nav aria-label="Projekt auswählen">
+
+          <a href="index.html" aria-current="true">
+            Unterwegs im Egerland
+          </a>
+
+          <a href="isergebirge/index.html">
+            Isergebirge im Wandel der Zeit
+          </a>
+
+        </nav>
+
+      </details>
+
+    </div>
+
+    <button class="menu-button" aria-expanded="false" aria-controls="main-nav">
+
       Menü <span></span>
+
     </button>
 
     <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
 
-      <a href="index.html">Startseite</a>
-      <a class="active" href="ueber-uns.html">Über uns</a>
-      <a href="unsere-arbeit.html">Unsere Arbeit</a>
-      <a href="fotogalerie.html">Fotogalerie</a>
-      <a href="team.html">Team</a>
-      <a href="medienreferenzen.html">Medienreferenzen</a>
-      <a href="sponsoren.html">Sponsoren</a>
-      <a href="kontakt.html">Kontakt &amp; Impressum</a>
+      <a href="index.html">
+        Startseite
+      </a>
+
+      <a class="active" href="ueber-uns.html">
+        Über uns
+      </a>
+
+      <a href="unsere-arbeit.html">
+        Unsere Arbeit
+      </a>
+
+      <a href="fotogalerie.html">
+        Fotogalerie
+      </a>
+
+      <a href="team.html">
+        Team
+      </a>
+
+      <a href="medienreferenzen.html">
+        Medienreferenzen
+      </a>
+
+      <a href="sponsoren.html">
+        Sponsoren
+      </a>
+
+      <a href="kontakt.html">
+        Kontakt &amp; Impressum
+      </a>
 
     </nav>
 
   </header>
 
-
   <main id="inhalt">
 
     <!-- =========================================
          ÜBER UNS – TITEL
-         ========================================= -->
+    ========================================= -->
 
     <section class="page-hero about-hero">
 
@@ -95,10 +201,9 @@
 
     </section>
 
-
     <!-- =========================================
          WER WIR SIND
-         ========================================= -->
+    ========================================= -->
 
     <section class="section about-intro">
 
@@ -120,10 +225,9 @@
 
     </section>
 
-
     <!-- =========================================
          UNSER P-SEMINAR + TEAMFOTO
-         ========================================= -->
+    ========================================= -->
 
     <section class="team-photo-section">
 
@@ -139,19 +243,33 @@
 
       </div>
 
-
       <div class="team-photo">
 
-        <div class="gallery-item about-team-photo" aria-describedby="team-photo-hint"><img src="ueber-uns-teamfoto.jpeg" width="1600" height="700" alt="Das Projektseminar Geografie Erlebnis Egerland gemeinsam unterwegs" loading="lazy" decoding="async"></div><p id="team-photo-hint" class="team-photo-hint">Foto anklicken und groß ansehen <span aria-hidden="true">↗</span></p>
+        <div class="gallery-item about-team-photo" aria-describedby="team-photo-hint">
+
+          <img
+            src="ueber-uns-teamfoto.jpeg"
+            width="1600"
+            height="700"
+            alt="Das Projektseminar Geografie Erlebnis Egerland gemeinsam unterwegs"
+            loading="lazy"
+            decoding="async">
+
+        </div>
+
+        <p id="team-photo-hint" class="team-photo-hint">
+
+          Foto anklicken und groß ansehen <span aria-hidden="true">↗</span>
+
+        </p>
 
       </div>
 
     </section>
 
-
     <!-- =========================================
          UNSER FILMPROJEKT
-         ========================================= -->
+    ========================================= -->
 
     <section class="section project-section">
 
@@ -175,21 +293,140 @@
             Der Film ist Teil einer bereits bestehenden Reihe: Nach Dokumentarfilmen über den Böhmerwald und das Riesengebirge bildet unser Projekt den dritten Teil dieser filmischen Spurensuche. Dabei verbinden wir historische Hintergründe mit persönlichen Geschichten und Eindrücken aus der Gegenwart.
           </p>
 
+          <!-- =========================================
+               UNSERE FILMREIHE
+          ========================================= -->
 
           <div class="film-series" id="filmreihe" aria-labelledby="film-series-title">
-            <h3 id="film-series-title">Unsere Filmreihe im Überblick</h3>
+
+            <h3 id="film-series-title">
+              Unsere Filmreihe im Überblick
+            </h3>
+
             <ol class="film-series-list">
-              <li id="boehmerwald-film"><span class="eyebrow">Teil 1 · 2024 · Dokumentarfilm</span><h4>Verschwundene Dörfer, vergessene Geschichten – auf Spurensuche im Böhmerwald</h4>
-                <p>„Durch Erinnern Zukunft gestalten“ begleitet elf Schülerinnen und Schüler auf ihrer Spurensuche im Böhmerwald und in Prag. Der erste Film unserer Reihe erzählt von Heimat, Vertreibung und Erinnerung.</p>
+
+              <!-- TEIL 1 – BÖHMERWALD -->
+
+              <li id="boehmerwald-film">
+
+                <span class="eyebrow">
+                  Teil 1 · 2024 · Dokumentarfilm
+                </span>
+
+                <h4>
+                  Verschwundene Dörfer, vergessene Geschichten – auf Spurensuche im Böhmerwald
+                </h4>
+
+                <p>
+                  „Durch Erinnern Zukunft gestalten“ begleitet elf Schülerinnen und Schüler auf ihrer Spurensuche im Böhmerwald und in Prag. Der erste Film unserer Reihe erzählt von Heimat, Vertreibung und Erinnerung.
+                </p>
+
                 <div class="film-video">
-                  <iframe src="https://www.youtube-nocookie.com/embed/DPwQaKIwajk?rel=0" title="Durch Erinnern Zukunft gestalten – Auf Spurensuche im Böhmerwald (2024)" width="560" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/DPwQaKIwajk?rel=0"
+                    title="Durch Erinnern Zukunft gestalten – Auf Spurensuche im Böhmerwald (2024)"
+                    width="560"
+                    height="315"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                  </iframe>
+
                 </div>
-                <p><a class="text-link" href="https://www.youtube.com/watch?v=DPwQaKIwajk" target="_blank" rel="noopener noreferrer">Film auf YouTube ansehen <span aria-hidden="true">↗</span></a> · Kanal „Auf Spurensuche“ · 43 Minuten</p>
+
+                <p>
+
+                  <a class="text-link" href="https://www.youtube.com/watch?v=DPwQaKIwajk" target="_blank" rel="noopener noreferrer">
+
+                    Film auf YouTube ansehen <span aria-hidden="true">↗</span>
+
+                  </a>
+
+                  · Kanal „Auf Spurensuche“ · 43 Minuten
+
+                </p>
+
               </li>
-              <li><span class="eyebrow">Teil 2 · 2025</span><h4>Geheimnisvolles Riesengebirge – Grenzerfahrungen zwischen Polen und Tschechien, auf den Spuren der sudetendeutschen Vergangenheit</h4></li>
-              <li><span class="eyebrow">Teil 3 · Jahrgang 2025/26</span><h4>Erlebnis Egerland – Unterwegs im Egerland</h4><p>Unser aktueller Dokumentarfilm über die Reisen ins Egerland und nach Brünn.</p></li>
-              <li><span class="eyebrow">Ausblick · Jahrgang 2026/27</span><h4>Abenteuer Heimatland – das Isergebirge im Wandel der Zeit</h4><p>Das nächste Projektseminar Geografie führt die filmische Spurensuche fort.</p></li>
+
+              <!-- TEIL 2 – RIESENGEBIRGE -->
+
+              <li>
+
+                <span class="eyebrow">
+                  Teil 2 · 2025
+                </span>
+
+                <h4>
+                  Geheimnisvolles Riesengebirge – Grenzerfahrungen zwischen Polen und Tschechien, auf den Spuren der sudetendeutschen Vergangenheit
+                </h4>
+
+              </li>
+
+              <!-- TEIL 3 – EGERLAND -->
+
+              <li id="egerland-film">
+
+                <span class="eyebrow">
+                  Teil 3 · Jahrgang 2025/26 · Dokumentarfilm
+                </span>
+
+                <h4>
+                  Unterwegs im Egerland – Auf Spurensuche nach Heimat und Erinnerung (2026)
+                </h4>
+
+                <p>
+                  Unser aktueller Dokumentarfilm über die Reisen ins Egerland und nach Brünn. Im Mittelpunkt stehen die Geschichte der Sudetendeutschen, persönliche Schicksale, Heimat, Vertreibung und die Bedeutung von Erinnerung und Versöhnung.
+                </p>
+
+                <div class="film-video">
+
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/HDPa_QxiXOA?rel=0"
+                    title="Unterwegs im Egerland – Auf Spurensuche nach Heimat und Erinnerung (2026)"
+                    width="560"
+                    height="315"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                  </iframe>
+
+                </div>
+
+                <p>
+
+                  <a class="text-link" href="https://youtu.be/HDPa_QxiXOA" target="_blank" rel="noopener noreferrer">
+
+                    Film auf YouTube ansehen <span aria-hidden="true">↗</span>
+
+                  </a>
+
+                </p>
+
+              </li>
+
+              <!-- TEIL 4 – ISERGEBIRGE -->
+
+              <li>
+
+                <span class="eyebrow">
+                  Ausblick · Jahrgang 2026/27
+                </span>
+
+                <h4>
+                  Abenteuer Heimatland – das Isergebirge im Wandel der Zeit
+                </h4>
+
+                <p>
+                  Das nächste Projektseminar Geografie führt die filmische Spurensuche fort.
+                </p>
+
+              </li>
+
             </ol>
+
           </div>
 
           <p>
@@ -202,10 +439,9 @@
 
     </section>
 
-
     <!-- =========================================
          KONTAKT – GRÜNER BEREICH
-         ========================================= -->
+    ========================================= -->
 
     <section class="contact-banner">
 
@@ -231,7 +467,9 @@
           </p>
 
           <a class="button button-light" href="kontakt.html">
+
             Kontakt aufnehmen <span>→</span>
+
           </a>
 
         </div>
@@ -242,18 +480,20 @@
 
   </main>
 
-
   <!-- =========================================
        FOOTER
-       ========================================= -->
+  ========================================= -->
 
   <footer class="site-footer">
 
     <div>
 
       <p>
+
         <strong>© 2026 Erlebnis Egerland</strong>
+
         · Projektseminar Geografie Gabriel-von-Seidl-Gymnasium Bad Tölz
+
       </p>
 
     </div>
@@ -264,9 +504,35 @@
 
   </footer>
 
+  <!-- =========================================
+       LIGHTBOX
+  ========================================= -->
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Teamfoto in Großansicht" aria-hidden="true"><button type="button" class="lightbox-close" aria-label="Bild schließen">×</button><div class="lightbox-content"><img id="lightbox-image" src="ueber-uns-teamfoto.jpeg" alt="Das Projektseminar Geografie Erlebnis Egerland gemeinsam unterwegs"><p id="lightbox-caption"></p></div></div>
-<script src="script.js?v=20261116-navigation"></script>
+  <div class="lightbox"
+       id="lightbox"
+       role="dialog"
+       aria-modal="true"
+       aria-label="Teamfoto in Großansicht"
+       aria-hidden="true">
+
+    <button type="button" class="lightbox-close" aria-label="Bild schließen">
+      ×
+    </button>
+
+    <div class="lightbox-content">
+
+      <img
+        id="lightbox-image"
+        src="ueber-uns-teamfoto.jpeg"
+        alt="Das Projektseminar Geografie Erlebnis Egerland gemeinsam unterwegs">
+
+      <p id="lightbox-caption"></p>
+
+    </div>
+
+  </div>
+
+  <script src="script.js?v=20261116-navigation"></script>
 
 </body>
 </html>
